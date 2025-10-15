@@ -1,677 +1,183 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>OPTILINE | Global Creative &amp; Branding Agency</title>
-<meta content="OPTILINE is a world-class creative agency specializing in crafting iconic brands, stunning visuals, and compelling video content. We build legacies." name="description"/>
-<meta content="Global Agency, Creative Branding, Logo Design, Video Production, UI/UX, High-End Design" name="keywords"/>
-<link href="https://www.optiline.agency/" rel="canonical"/>
-<link href="https://i.ibb.co/jvhxGcxT/FAV-3.webp" rel="icon" type="image/webp"/>
-<meta content="website" property="og:type"/>
-<meta content="https://www.optiline.agency/" property="og:url"/>
-<meta content="OPTILINE | Global Creative &amp; Branding Agency" property="og:title"/>
-<meta content="We transform visionary ideas into unforgettable brand experiences that resonate globally." property="og:description"/>
-<meta content="https://www.optiline.agency/assets/social-share-image.jpg" property="og:image"/>
-<meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://www.optiline.agency/" property="twitter:url"/>
-<meta content="OPTILINE | Global Creative &amp; Branding Agency" property="twitter:title"/>
-<meta content="We transform visionary ideas into unforgettable brand experiences that resonate globally." property="twitter:description"/>
-<meta content="https://www.optiline.agency/assets/social-share-image.jpg" property="twitter:image"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        :root {
-            --primary-dark: #0A041A;
-            --secondary-dark: #12082F;
-            --accent-purple: #8A2BE2;
-            --accent-light: #A45EFF;
-            --text-light: #F0F0F8;
-            --text-gray: #B0B0C0;
-            --glow-color: rgba(164, 94, 255, 0.7);
-            --card-bg: rgba(18, 8, 47, 0.6);
-            --card-border-color: rgba(138, 43, 226, 0.25);
-            --transition-fast: 0.3s ease;
-            --transition-smooth: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            --font-main: 'Inter', sans-serif;
-            --font-heading: 'Orbitron', sans-serif;
-        }
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-main); background-color: var(--primary-dark); color: var(--text-light); line-height: 1.7; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        main, footer { position: relative; z-index: 2; background: transparent; }
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease; background-color: transparent; }
-        .main-header.scrolled { background-color: rgba(10, 4, 26, 0.7); backdrop-filter: blur(12px); padding: 8px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
-        .logo img { height: 65px; transition: transform var(--transition-fast); }
-        .logo:hover img { transform: scale(1.1); }
-        .nav-links { display: flex; list-style: none; } .nav-links li { margin: 0 20px; }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; padding: 5px 0; position: relative; transition: color var(--transition-fast); }
-        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: var(--accent-light); transition: width 0.4s ease; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-light); }
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-        .hamburger { display: none; }
-        .glow-text { text-shadow: 0 0 8px rgba(255,255,255,0.3), 0 0 20px var(--glow-color), 0 0 35px var(--glow-color); }
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 0 60px; }
-        .hero h1 { font-size: clamp(3.5rem, 8vw, 5rem); line-height: 1.1; font-weight: 900; margin-bottom: 1.5rem; padding: 0 20px; word-wrap: break-word; }
-        .hero h1 .word { display: inline-block; }
-        .hero p { font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--text-gray); max-width: 750px; margin: 0 auto 2.5rem; padding: 0 20px; }
-        .cta-button { display: inline-block; padding: 14px 36px; background: linear-gradient(45deg, var(--accent-purple), var(--accent-light)); color: #fff; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: transform var(--transition-fast), box-shadow var(--transition-fast); box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4); }
-        .cta-button:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 15px 35px rgba(138, 43, 226, 0.5); }
-        .cta-button .fa-arrow-right { margin-left: 10px; transition: transform 0.3s ease; }
-        .cta-button:hover .fa-arrow-right { transform: translateX(5px); }
-        .section { padding: 100px 0; }
-        .section-dark { background: radial-gradient(ellipse at 50% 100%, rgba(18, 8, 47, 0.95) 0%, rgba(10, 4, 26, 0.9) 80%); }
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { font-size: clamp(2rem, 4.5vw, 3rem); }
-        .section-title p { max-width: 600px; margin: 1rem auto 0; color: var(--text-gray); font-size: clamp(0.9rem, 2vw, 1rem); }
-        .logo-wall { padding: 70px 0; background-color: rgba(18, 8, 47, 0.3); }
-        .logo-wall h4 { color: var(--text-gray); margin-bottom: 3rem; letter-spacing: 2px; font-family: var(--font-main); font-size: clamp(0.9rem, 2vw, 1rem); text-align: center; }
-        .logo-grid { display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap; }
-        .logo-grid i { font-size: 3rem; color: var(--text-gray); transition: color var(--transition-fast), transform var(--transition-fast); }
-        .logo-grid i:hover { color: var(--text-light); transform: scale(1.1); }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .service-card { background: var(--card-bg); border: 1px solid var(--card-border-color); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem 1.5rem; text-align: center; transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); border-color: var(--accent-light); }
-        .service-icon { font-size: 3rem; margin-bottom: 1.5rem; background: linear-gradient(135deg, var(--accent-purple), var(--accent-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: transform 0.3s ease; }
-        .service-card:hover .service-icon { transform: scale(1.1); }
-        .service-card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
-        .service-card p { color: var(--text-gray); font-size: 0.95rem; }
-        .why-choose-us-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .feature-card { background: transparent; border: 1px solid var(--card-border-color); border-radius: 15px; padding: 2rem 1.5rem; text-align: left; transition: background-color var(--transition-fast), transform var(--transition-fast); }
-        .feature-card:hover { background-color: var(--card-bg); transform: translateY(-8px); }
-        .feature-icon { font-size: 2.2rem; color: var(--accent-light); margin-bottom: 1.5rem; }
-        .feature-card h3 { font-size: 1.3rem; margin-bottom: 1rem; text-transform: none; }
-        .feature-card p { font-size: 0.95rem; }
-        .featured-work-grid { display: grid; grid-template-columns: 1fr; gap: 5rem; }
-        .work-item { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
-        .work-item:nth-child(even) .work-image { order: 2; }
-        .work-image { border-radius: 15px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-        .work-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
-        .work-image:hover img { transform: scale(1.05); }
-        .work-content .work-category { color: var(--accent-light); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; font-size: 0.9rem; }
-        .work-content h3 { font-size: 1.8rem; margin-bottom: 1.5rem; }
-        .work-content p { color: var(--text-gray); margin-bottom: 2rem; font-size: 0.95rem; }
-        .view-project-btn { color: var(--accent-light); text-decoration: none; font-weight: 600; }
-        .view-project-btn i { margin-left: 8px; transition: transform 0.3s ease; }
-        .view-project-btn:hover i { transform: translateX(5px); }
-        .view-all-work-btn { text-align: center; margin-top: 3rem; }
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .blog-post-card { background: var(--card-bg); border: 1px solid var(--card-border-color); border-radius: 15px; overflow: hidden; transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); }
-        .blog-post-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-        .blog-post-img { height: 180px; overflow: hidden; }
-        .blog-post-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .blog-post-card:hover .blog-post-img img { transform: scale(1.1); }
-        .blog-post-content { padding: 1.5rem; }
-        .blog-post-content .post-category { color: var(--accent-light); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
-        .blog-post-content h3 { font-size: 1.2rem; margin-bottom: 1rem; line-height: 1.4; }
-        .blog-post-content p { color: var(--text-gray); font-size: 0.9rem; }
-        
-        /* Stats Cards Styling */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .stat-card { background: var(--card-bg); border: 1px solid var(--card-border-color); border-radius: 15px; padding: 2.5rem 2rem; text-align: center; transition: transform var(--transition-fast), box-shadow var(--transition-fast); position: relative; overflow: hidden; }
-        .stat-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--accent-purple), var(--accent-light)); transform: scaleX(0); transition: transform 0.4s ease; }
-        .stat-card:hover::before { transform: scaleX(1); }
-        .stat-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2); }
-        .stat-card .stat-number { font-size: 3.5rem; font-family: var(--font-heading); font-weight: 900; color: var(--accent-light); display: block; margin-bottom: 0.5rem; }
-        .stat-card .stat-label { font-size: 1.1rem; color: var(--text-light); font-weight: 600; }
-        
-        .process-timeline { position: relative; max-width: 800px; margin: 0 auto; }
-        .process-timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--card-border-color); top: 0; bottom: 0; left: 50%; margin-left: -2px; }
-        .process-step { padding: 10px 30px; position: relative; background-color: inherit; width: 50%; }
-        .process-step.left { left: 0; text-align: right; }
-        .process-step.right { left: 50%; text-align: left; }
-        .process-step::after { content: ''; position: absolute; width: 20px; height: 20px; right: -10px; background-color: var(--primary-dark); border: 4px solid var(--accent-purple); top: 15px; border-radius: 50%; z-index: 1; }
-        .process-step.right::after { left: -10px; }
-        .process-content { padding: 18px; background: var(--card-bg); border: 1px solid transparent; position: relative; border-radius: 6px; transition: border-color var(--transition-fast), transform var(--transition-fast); }
-        .process-step:hover .process-content { border-color: var(--accent-light); transform: scale(1.02); }
-        .process-content h3 { margin-bottom: 0.5rem; color: var(--accent-light); font-size: 1.2rem; }
-        .process-content p { font-size: 0.9rem; }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
-        .team-member { text-align: center; }
-        .team-member-img { width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 1.5rem; overflow: hidden; border: 3px solid var(--accent-purple); position: relative; }
-        .team-member-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .team-member:hover .team-member-img img { transform: scale(1.1); }
-        .team-member h4 { font-size: 1.2rem; }
-        .team-member p { color: var(--accent-light); font-size: 0.9rem; }
-        
-        /* Testimonials Cards Styling */
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
-        .testimonial-card { background: var(--card-bg); border: 1px solid var(--card-border-color); border-radius: 15px; padding: 2.5rem; text-align: center; transition: transform var(--transition-fast), box-shadow var(--transition-fast); display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-        .testimonial-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
-        .testimonial-quote { font-size: 1.1rem; font-style: italic; margin-bottom: 2rem; color: var(--text-light); line-height: 1.6; flex-grow: 1; }
-        .testimonial-author { font-weight: bold; color: var(--accent-light); margin-top: auto; }
-        .testimonial-author span { display: block; font-weight: normal; color: var(--text-gray); font-size: 0.9rem; margin-top: 0.5rem; }
-        
-        /* FAQ Accordion - Updated Animation */
-        .faq-accordion { max-width: 800px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid var(--card-border-color); overflow: hidden; }
-        .faq-question { width: 100%; background: transparent; border: none; color: var(--text-light); text-align: left; padding: 1.2rem 1rem; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: color var(--transition-fast), background-color var(--transition-fast); }
-        .faq-question:hover { color: var(--accent-light); background-color: rgba(138, 43, 226, 0.05); }
-        .faq-question i { transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
-        .faq-item.active .faq-question { color: var(--accent-light); background-color: rgba(138, 43, 226, 0.08); }
-        .faq-item.active .faq-question i { transform: rotate(180deg); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease; }
-        .faq-answer p { padding: 0 1rem 1.2rem; color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; transform: translateY(-10px); opacity: 0; transition: transform 0.4s ease, opacity 0.4s ease; }
-        .faq-item.active .faq-answer { max-height: 500px; }
-        .faq-item.active .faq-answer p { transform: translateY(0); opacity: 1; transition-delay: 0.1s; }
-        
-        .cta-section { text-align: center; padding: 70px 0; background-color: rgba(10, 4, 26, 0.5); }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 2rem; }
-        .main-footer { background-color: transparent; padding: 70px 5% 25px; border-top: 1px solid var(--card-border-color); }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-bottom: 2.5rem; text-align: left; }
-        .footer-about p { color: var(--text-gray); margin-top: 1rem; font-size: 0.95rem; }
-        .footer-links h4 { font-size: 1.1rem; margin-bottom: 1rem; }
-        .footer-links ul { list-style: none; padding: 0; } .footer-links li { margin-bottom: 0.7rem; }
-        .footer-links a { color: var(--text-gray); text-decoration: none; transition: color var(--transition-fast); font-size: 0.95rem; }
-        .footer-links a:hover { color: var(--accent-light); }
-        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid var(--card-border-color); color: var(--text-gray); font-size: 0.85rem; }
-        
-        /* Smooth Scrolling Enhancement */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-        
-        /* Performance Optimizations */
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .main-header { padding: 10px 5%; }
-            .main-header.scrolled { padding: 8px 5%; }
-            .logo img { height: 55px; }
-            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background-color: var(--secondary-dark); flex-direction: column; justify-content: center; align-items: center; transition: right 0.5s ease-in-out; }
-            .nav-links.active { right: 0; } .nav-links li { margin: 20px 0; }
-            .hamburger { display: block; cursor: pointer; z-index: 1001; position: relative; width: 25px; height: 21px; }
-            .hamburger div { width: 100%; height: 3px; background-color: var(--text-light); position: absolute; left: 0; transition: all var(--transition-fast); }
-            .bar1 { top: 0; } .bar2 { top: 9px; } .bar3 { bottom: 0; }
-            .hamburger.active .bar1 { transform: rotate(45deg); top: 9px; } .hamburger.active .bar2 { opacity: 0; } .hamburger.active .bar3 { transform: rotate(-45deg); top: 9px; }
-            .hero { padding: 100px 0 50px; }
-            .hero h1 { font-size: clamp(3.2rem, 9vw, 4.5rem); line-height: 1.1; padding: 0 15px; }
-            .hero p { padding: 0 15px; }
-            .section { padding: 80px 0; }
-            .logo-wall { padding: 60px 0; }
-            .logo-grid { gap: 2.5rem; }
-            .logo-grid i { font-size: 2.5rem; }
-            .services-grid, .why-choose-us-grid, .blog-grid, .testimonials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .service-card, .feature-card { padding: 1.5rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-            .stat-card { padding: 2rem 1.5rem; }
-            .stat-card .stat-number { font-size: 2.8rem; }
-            .featured-work-grid { gap: 3rem; }
-            .work-item { grid-template-columns: 1fr; gap: 2rem; }
-            .work-item:nth-child(even) .work-image { order: 1; }
-            .work-content { order: 2; text-align: center; }
-            .work-content h3 { font-size: 1.5rem; }
-            .process-timeline::after { left: 15px; }
-            .process-step { width: 100%; padding-left: 40px; padding-right: 10px; }
-            .process-step.left, .process-step.right { left: 0; text-align: left; }
-            .process-step::after { left: 5px; }
-            .team-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-            .testimonial-card { padding: 2rem; }
-            .cta-section h2 { font-size: 2rem; }
-            .footer-content { grid-template-columns: 1fr; text-align: center; }
-            
-            html {
-                scroll-padding-top: 70px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 { font-size: clamp(2.8rem, 10vw, 4rem); line-height: 1.1; padding: 0 10px; }
-            .section-title h2 { font-size: clamp(1.8rem, 6vw, 2.2rem); }
-            .cta-button { padding: 12px 30px; font-size: 0.9rem; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .logo-grid { gap: 2rem; }
-            .logo-grid i { font-size: 2rem; }
-            .stat-card .stat-number { font-size: 2.5rem; }
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPTILINE | Global Creative & Branding Agency</title>
+    
+    <meta name="description" content="OPTILINE is a world-class creative agency specializing in crafting iconic brands, stunning visuals, and compelling video content. We build legacies.">
+    <link rel="canonical" href="https://optiline.online/">
 
-        @media (max-width: 360px) {
-            .hero h1 { font-size: clamp(2.5rem, 9vw, 3.5rem); line-height: 1.1; padding: 0 10px; }
-        }
-    </style>
-</link><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://optiline.online/#organization", "name": "OPTILINE | Global Creative & Branding Agency", "url": "https://optiline.online"}, {"@type": "WebSite", "@id": "https://optiline.online/#website", "url": "https://optiline.online", "name": "OPTILINE | Global Creative & Branding Agency", "publisher": {"@id": "https://optiline.online/#organization"}}]}</script></head>
+    <link rel="icon" type="image/webp" href="https://i.ibb.co/jvhxGcxT/FAV-3.webp">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://optiline.online/">
+    <meta property="og:title" content="OPTILINE | Global Creative & Branding Agency">
+    <meta property="og:description" content="We transform visionary ideas into unforgettable brand experiences that resonate globally.">
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://optiline.online/">
+    <meta property="twitter:title" content="OPTILINE | Global Creative & Branding Agency">
+    <meta property="twitter:description" content="We transform visionary ideas into unforgettable brand experiences that resonate globally.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
 <body>
-<div id="particles-js"></div>
-<header class="main-header" id="header">
-<a class="logo" href="/home/"><img alt="OPTILINE Logo" src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp"/></a>
-<nav>
-<ul class="nav-links">
-<li><a class="active" href="/home/">Home</a></li>
-<li><a href="/services/">Services</a></li>
-<li><a href="/portfolio/">Portfolio</a></li>
-<li><a href="/pricing/">Pricing</a></li>
-<li><a href="/contact/">Contact</a></li>
-</ul>
-</nav>
-<div class="hamburger"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div></div>
-</header>
-<main>
-<section class="hero">
-<div class="container hero-content">
-<h1 class="glow-text" id="hero-headline">CRAFTING DIGITAL<br/>LEGENDARY</h1>
-<p class="reveal-initial">We are a global creative collective, engineering iconic brands and digital experiences that define industries and inspire the future.</p>
-<a class="cta-button reveal-initial" href="/contact/">BEGIN YOUR ASCENT <i class="fas fa-arrow-right"></i></a>
-</div>
-</section>
-<section class="logo-wall">
-<div class="container anim-group">
-<h4>TRUSTED BY INDUSTRY LEADERS &amp; VISIONARY STARTUPS</h4>
-<div class="logo-grid">
-<i class="fab fa-neos" title="Neos"></i> <i class="fab fa-hive" title="Hive"></i> <i class="fab fa-galactic-republic" title="Galactic Republic"></i>
-<i class="fab fa-wizards-of-the-coast" title="Wizards of the Coast"></i> <i class="fab fa-react" title="React"></i>
-</div>
-</div>
-</section>
-<section class="section section-dark" id="services">
-<div class="container">
-<div class="section-title anim-group">
-<h2>Core Disciplines</h2>
-<p>We blend strategy, design, and technology to create work that not only looks exceptional but also performs brilliantly.</p>
-</div>
-<div class="services-grid">
-<div class="service-card anim-group">
-<div class="service-icon"><i class="fas fa-crown"></i></div>
-<h3>Brand &amp; Identity</h3>
-<p>Crafting unforgettable brand identities, from foundational strategy and logos to complete visual systems that command attention.</p>
-</div>
-<div class="service-card anim-group">
-<div class="service-icon"><i class="fas fa-film"></i></div>
-<h3>Cinematic Video</h3>
-<p>Producing high-impact brand films, commercials, and social media content designed to captivate and inspire action.</p>
-</div>
-<div class="service-card anim-group">
-<div class="service-icon"><i class="fas fa-desktop"></i></div>
-<h3>Digital Experiences</h3>
-<p>Engineering immersive websites and UI/UX solutions that are intuitive, beautiful, and built for peak performance.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="why-us">
-<div class="container">
-<div class="section-title anim-group">
-<h2>Why Partner With OPTILINE?</h2>
-<p>We go beyond aesthetics. We are architects of brand legacy, fusing strategic insight with unparalleled creative execution to deliver tangible results.</p>
-</div>
-<div class="why-choose-us-grid">
-<div class="feature-card anim-group">
-<div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-<h3>Strategic Partnership</h3>
-<p>We function as an extension of your team, deeply investing in your success to ensure our creative solutions are perfectly aligned with your business goals.</p>
-</div>
-<div class="feature-card anim-group">
-<div class="feature-icon"><i class="fas fa-palette"></i></div>
-<h3>Design Without Compromise</h3>
-<p>Our commitment to creative excellence ensures every pixel and every frame is meticulously crafted for maximum impact and timeless appeal.</p>
-</div>
-<div class="feature-card anim-group">
-<div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-<h3>Results-Driven Approach</h3>
-<p>Creativity is only half the story. We build strategic assets designed to drive growth, increase engagement, and deliver a measurable return on investment.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-dark" id="stats">
-<div class="container">
-<div class="section-title anim-group">
-<h2>Our Impact</h2>
-<p>Numbers that speak to our commitment and success in delivering exceptional results.</p>
-</div>
-<div class="stats-grid">
-<div class="stat-card anim-group">
-<span class="stat-number" data-target="150">0</span>
-<span class="stat-label">Brands Launched</span>
-</div>
-<div class="stat-card anim-group">
-<span class="stat-number" data-target="98">0</span>
-<span class="stat-label">Client Satisfaction</span>
-</div>
-<div class="stat-card anim-group">
-<span class="stat-number" data-target="25">0</span>
-<span class="stat-label">Countries Served</span>
-</div>
-<div class="stat-card anim-group">
-<span class="stat-number" data-target="12">0</span>
-<span class="stat-label">Industry Awards</span>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-dark" id="featured-work">
-<div class="container">
-<div class="section-title anim-group">
-<h2>Featured Work</h2>
-<p>A glimpse into the impactful brand experiences we've engineered for our partners.</p>
-</div>
-<div class="featured-work-grid">
-<div class="work-item anim-group">
-<div class="work-image">
-<a href="/portfolio/"><img alt="Corporate Rebrand Project" loading="lazy" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/></a>
-</div>
-<div class="work-content">
-<p class="work-category">Branding</p>
-<h3>Corporate Rebrand for Nexus</h3>
-<p>We partnered with Nexus to execute a complete corporate rebrand, developing a new visual identity system that projected a modern, innovative, and trustworthy image to their global clientele.</p>
-<a class="view-project-btn" href="/portfolio/">View Project <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-<div class="work-item anim-group">
-<div class="work-image">
-<a href="/portfolio/"><img alt="Nova Drones Launch Film" loading="lazy" src="https://images.unsplash.com/photo-1516245834210-c4c1427873ab?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/></a>
-</div>
-<div class="work-content">
-<p class="work-category">Video</p>
-<h3>Nova Drones Launch Film</h3>
-<p>To introduce Nova Drones' revolutionary new product, we produced a cinematic launch film that captured the thrill of flight and highlighted its cutting-edge technology, resulting in a record-breaking launch.</p>
-<a class="view-project-btn" href="/portfolio/">View Project <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-<div class="work-item anim-group">
-<div class="work-image">
-<a href="/portfolio/"><img alt="Quantum Fintech App" loading="lazy" src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/></a>
-</div>
-<div class="work-content">
-<p class="work-category">UI/UX</p>
-<h3>Quantum Fintech App</h3>
-<p>Our team designed the UI/UX for Quantum's new mobile banking app, focusing on a seamless, intuitive, and secure user experience that simplified complex financial management for customers.</p>
-<a class="view-project-btn" href="/portfolio/">View Project <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</div>
-<div class="view-all-work-btn anim-group">
-<a class="cta-button" href="/portfolio/">Explore All Projects</a>
-</div>
-</div>
-</section>
-<section class="section" id="process">
-<div class="container">
-<div class="section-title anim-group">
-<h2>Our Strategic Process</h2>
-<p>A proven framework for delivering transformative results and ensuring project success from start to finish.</p>
-</div>
-<div class="process-timeline">
-<div class="process-step left anim-group">
-<div class="process-content"><h3>01. Discovery &amp; Strategy</h3><p>We dive deep into your brand, audience, and goals to build a strategic foundation.</p></div>
-</div>
-<div class="process-step right anim-group">
-<div class="process-content"><h3>02. Concept &amp; Design</h3><p>Our team translates strategy into world-class visual concepts, pushing creative boundaries.</p></div>
-</div>
-<div class="process-step left anim-group">
-<div class="process-content"><h3>03. Execution &amp; Production</h3><p>With a clear vision, we move into production, meticulously crafting every detail.</p></div>
-</div>
-<div class="process-step right anim-group">
-<div class="process-content"><h3>04. Launch &amp; Optimization</h3><p>We deploy the final product and analyze performance for a successful launch.</p></div>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="team">
-<div class="container">
-<div class="section-title anim-group">
-<h2>Meet The Architects</h2>
-<p>A collective of strategists, designers, and creators united by a passion for building brands that matter.</p>
-</div>
-<div class="team-grid">
-<div class="team-member anim-group">
-<div class="team-member-img"><img alt="Alex Thorne" loading="lazy" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&amp;w=2080&amp;auto=format&amp;fit=crop"/></div>
-<h4>Alex Thorne</h4><p>Creative Director</p>
-</div>
-<div class="team-member anim-group">
-<div class="team-member-img"><img alt="Maria Chen" loading="lazy" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&amp;w=1961&amp;auto=format&amp;fit=crop"/></div>
-<h4>Maria Chen</h4><p>Lead Strategist</p>
-</div>
-<div class="team-member anim-group">
-<div class="team-member-img"><img alt="David Lee" loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&amp;w=1974&amp;auto=format&amp;fit=crop"/></div>
-<h4>David Lee</h4><p>Head of Production</p>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-dark" id="testimonials">
-<div class="container">
-<div class="section-title anim-group"><h2>Trusted by Innovators</h2></div>
-<div class="testimonials-grid">
-<div class="testimonial-card anim-group">
-<p class="testimonial-quote">"OPTILINE didn't just give us a logo; they gave us a soul. Their dedication to storytelling and design is unparalleled."</p>
-<p class="testimonial-author">Jane Doe <span>CEO, FutureTech Inc.</span></p>
-</div>
-<div class="testimonial-card anim-group">
-<p class="testimonial-quote">"The video campaign they produced was a masterpiece. It captured our brand's essence perfectly and delivered results beyond our wildest expectations."</p>
-<p class="testimonial-author">John Smith <span>CMO, Nova Dynamics</span></p>
-</div>
-<div class="testimonial-card anim-group">
-<p class="testimonial-quote">"Working with their UI/UX team was a revelation. They transformed our complex platform into an intuitive and beautiful experience."</p>
-<p class="testimonial-author">Emily Wang <span>Founder, ConnectSphere</span></p>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="blog">
-<div class="container">
-<div class="section-title anim-group">
-<h2>Latest Insights</h2>
-<p>Explore our thoughts on branding, design trends, and the future of digital creativity.</p>
-</div>
-<div class="blog-grid">
-<div class="blog-post-card anim-group">
-<div class="blog-post-img"><img alt="Blog post image about branding" loading="lazy" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/></div>
-<div class="blog-post-content">
-<p class="post-category">Branding</p>
-<h3>The Power of a Strong Brand Identity in a Crowded Market</h3>
-<p>Discover why a compelling brand strategy is more critical than ever for business success...</p>
-</div>
-</div>
-<div class="blog-post-card anim-group">
-<div class="blog-post-img"><img alt="Blog post image about video content" loading="lazy" src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/></div>
-<div class="blog-post-content">
-<p class="post-category">Video Marketing</p>
-<h3>5 Storytelling Techniques to Make Your Brand Films Unforgettable</h3>
-<p>Learn how to captivate your audience and drive action with video content that resonates...</p>
-</div>
-</div>
-<div class="blog-post-card anim-group">
-<div class="blog-post-img"><img alt="Blog post image about UI/UX trends" loading="lazy" src="https://images.unsplash.com/photo-1559028006-448665bd7c24?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/></div>
-<div class="blog-post-content">
-<p class="post-category">UI/UX Design</p>
-<h3>Future-Forward: Top UI/UX Trends to Watch in 2026</h3>
-<p>From AI integration to immersive interfaces, explore the trends shaping digital experiences...</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-dark" id="faq">
-<div class="container">
-<div class="section-title anim-group"><h2>Common Queries</h2></div>
-<div class="faq-accordion anim-group">
-<div class="faq-item"><button class="faq-question">What types of clients do you work with?<i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>We partner with a diverse range of clients, from ambitious startups seeking to disrupt markets to established Fortune 500 companies aiming to redefine their legacy.</p></div></div>
-<div class="faq-item"><button class="faq-question">How long does a project typically take?<i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>Timelines vary based on scope. A foundational branding project might take 4-6 weeks, while a full digital experience and video campaign could span several months.</p></div></div>
-<div class="faq-item"><button class="faq-question">What makes OPTILINE different?<i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>Our key differentiator is our fusion of high-level strategic thinking with world-class creative execution. We build strategic assets that drive business growth.</p></div></div>
-</div>
-</div>
-</section>
-<section class="section cta-section">
-<div class="container anim-group">
-<h2>Let's Build The Future Together !</h2>
-<a class="cta-button" href="/contact/">Start a Project <i class="fas fa-arrow-right"></i></a>
-</div>
-</section>
-</main>
-<footer class="main-footer">
-<div class="container footer-content">
-<div class="footer-about">
-<a class="logo" href="/home/"><img alt="OPTILINE Logo" src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp"/></a>
-<p>OPTILINE is a creative agency dedicated to building the brands of tomorrow. We partner with visionaries to create work that matters.</p>
-</div>
-<div class="footer-links">
-<h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/pricing/">Pricing</a></li></ul>
-</div>
-<div class="footer-links">
-<h4>Support</h4><ul><li><a href="/contact/">Contact Us</a></li><li><a href="#process">Our Process</a></li><li><a href="/careers/">Careers</a></li></ul>
-</div>
-</div>
-<div class="copyright"><p>© 2025 OPTILINE. A New Era of Creativity.</p></div>
-</footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Enhanced smooth scrolling
-            const scrollElements = document.querySelectorAll('a[href^="#"]');
-            scrollElements.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 80;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
+    <div class="custom-cursor"></div>
+    <div id="particles-js"></div>
+    
+    <header class="main-header" id="header">
+        <a href="/home/" class="logo"><img src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp" alt="OPTILINE Logo"></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/home/" class="active">Home</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/portfolio/">Portfolio</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div></div>
+    </header>
 
-            particlesJS("particles-js", {"particles":{"number":{"value":50,"density":{"enable":true,"value_area":800}},"color":{"value":"#8A2BE2"},"shape":{"type":"circle"},"opacity":{"value":0.5,"random":true,"anim":{"enable":true,"speed":0.5,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true},"line_linked":{"enable":false},"move":{"enable":true,"speed":1,"direction":"none","random":true,"straight":false,"out_mode":"out"}},"interactivity":{"detect_on":"canvas"},"retina_detect":true});
-            
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => { 
-                header.classList.toggle('scrolled', window.scrollY > 50); 
-            });
-            
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            hamburger.addEventListener('click', () => { 
-                hamburger.classList.toggle('active'); 
-                navLinks.classList.toggle('active'); 
-            });
-            
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // Optimized animations for better performance
-            gsap.from("#hero-headline", { 
-                duration: 1.2, 
-                y: 100, 
-                opacity: 0, 
-                ease: "power4.out", 
-                delay: 0.2 
-            });
-            
-            gsap.from(".reveal-initial", { 
-                duration: 1.5, 
-                y: 50, 
-                opacity: 0, 
-                ease: "power4.out", 
-                stagger: 0.2, 
-                delay: 0.6 
-            });
-            
-            // Optimized scroll animations
-            gsap.utils.toArray('.anim-group').forEach(group => {
-                const anims = group.querySelectorAll('h2, h3, h4, p, .cta-button, .logo-grid i, .service-card, .stat-card, .testimonial-card, .team-member, .faq-item, .process-step, .feature-card, .work-item, .blog-post-card, .view-all-work-btn');
-                gsap.from(anims, {
-                    y: 40, 
-                    opacity: 0, 
-                    duration: 0.8, 
-                    ease: "power2.out", 
-                    stagger: 0.1,
-                    scrollTrigger: { 
-                        trigger: group, 
-                        start: "top 85%", 
-                        end: "bottom 60%",
-                        toggleActions: "play none none none",
-                        markers: false
-                    }
-                });
-            });
-            
-            // Stats counter animation
-            gsap.utils.toArray('.stat-number').forEach(el => {
-                gsap.to(el, { 
-                    innerText: +el.dataset.target, 
-                    duration: 2.5, 
-                    roundProps: "innerText", 
-                    ease: "power2.inOut", 
-                    scrollTrigger: { 
-                        trigger: el, 
-                        start: "top 90%",
-                        toggleActions: "play none none none"
-                    } 
-                });
-            });
-            
-            // FAQ accordion - Updated with smooth animation
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                const answerContent = item.querySelector('.faq-answer p');
-                
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-                    
-                    // Close all FAQ items
-                    faqItems.forEach(i => {
-                        i.classList.remove('active');
-                        const otherAnswer = i.querySelector('.faq-answer');
-                        const otherContent = i.querySelector('.faq-answer p');
-                        gsap.to(otherAnswer, {
-                            maxHeight: 0,
-                            duration: 0.4,
-                            ease: 'power2.inOut'
-                        });
-                        gsap.to(otherContent, {
-                            y: -10,
-                            opacity: 0,
-                            duration: 0.3,
-                            ease: 'power2.inOut'
-                        });
-                    });
-                    
-                    // Open current item if it wasn't active
-                    if (!isActive) {
-                        item.classList.add('active');
-                        gsap.to(answer, {
-                            maxHeight: answer.scrollHeight + 20,
-                            duration: 0.5,
-                            ease: 'power2.inOut'
-                        });
-                        gsap.to(answerContent, {
-                            y: 0,
-                            opacity: 1,
-                            duration: 0.4,
-                            delay: 0.1,
-                            ease: 'power2.out'
-                        });
-                    }
-                });
-            });
+    <main>
+        <section class="hero">
+            <div class="container hero-content anim-group">
+                <h1 class="glow-text">CRAFTING DIGITAL<br>LEGACIES</h1>
+                <p>We are a global creative collective, engineering iconic brands and digital experiences that define industries and inspire the future.</p>
+                <a href="/contact/" class="cta-button">BEGIN YOUR ASCENT <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
 
-            // Close mobile menu when clicking on links
-            const navLinksList = document.querySelectorAll('.nav-links a');
-            navLinksList.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-        });
-    </script>
+        <section class="logo-wall">
+            <div class="container anim-group">
+                <h4>TRUSTED BY INDUSTRY LEADERS & VISIONARY STARTUPS</h4>
+                <div class="logo-grid">
+                    <i class="fab fa-neos" title="Neos"></i> <i class="fab fa-hive" title="Hive"></i> <i class="fab fa-galactic-republic" title="Galactic Republic"></i> 
+                    <i class="fab fa-wizards-of-the-coast" title="Wizards of the Coast"></i> <i class="fab fa-react" title="React"></i>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark" id="services">
+            <div class="container">
+                <div class="section-title anim-group">
+                    <h2>Core Disciplines</h2>
+                    <p>We blend strategy, design, and technology to create work that not only looks exceptional but also performs brilliantly.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card anim-group">
+                        <div class="service-icon"><i class="fas fa-crown"></i></div>
+                        <h3>Brand & Identity</h3>
+                        <p>Crafting unforgettable brand identities, from foundational strategy and logos to complete visual systems that command attention.</p>
+                    </div>
+                    <div class="service-card anim-group">
+                        <div class="service-icon"><i class="fas fa-film"></i></div>
+                        <h3>Cinematic Video</h3>
+                        <p>Producing high-impact brand films, commercials, and social media content designed to captivate and inspire action.</p>
+                    </div>
+                    <div class="service-card anim-group">
+                        <div class="service-icon"><i class="fas fa-desktop"></i></div>
+                        <h3>Digital Experiences</h3>
+                        <p>Engineering immersive websites and UI/UX solutions that are intuitive, beautiful, and built for peak performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section section-dark" id="stats">
+            <div class="container">
+                <div class="section-title anim-group">
+                    <h2>Our Impact</h2>
+                    <p>Numbers that speak to our commitment and success in delivering exceptional results.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card anim-group">
+                        <span class="stat-number" data-target="150">0</span>
+                        <span class="stat-label">Brands Launched</span>
+                    </div>
+                    <div class="stat-card anim-group">
+                        <span class="stat-number" data-target="98">0</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                    <div class="stat-card anim-group">
+                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-label">Countries Served</span>
+                    </div>
+                    <div class="stat-card anim-group">
+                        <span class="stat-number" data-target="12">0</span>
+                        <span class="stat-label">Industry Awards</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="process">
+            <div class="container">
+                <div class="section-title anim-group">
+                    <h2>Our Strategic Process</h2>
+                    <p>A proven framework for delivering transformative results and ensuring project success from start to finish.</p>
+                </div>
+                <div class="process-timeline">
+                    <div class="process-step left anim-group">
+                        <div class="process-content"><h3>01. Discovery & Strategy</h3><p>We dive deep into your brand, audience, and goals to build a strategic foundation.</p></div>
+                    </div>
+                    <div class="process-step right anim-group">
+                        <div class="process-content"><h3>02. Concept & Design</h3><p>Our team translates strategy into world-class visual concepts, pushing creative boundaries.</p></div>
+                    </div>
+                    <div class="process-step left anim-group">
+                        <div class="process-content"><h3>03. Execution & Production</h3><p>With a clear vision, we move into production, meticulously crafting every detail.</p></div>
+                    </div>
+                    <div class="process-step right anim-group">
+                        <div class="process-content"><h3>04. Launch & Optimization</h3><p>We deploy the final product and analyze performance for a successful launch.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark" id="faq">
+            <div class="container">
+                <div class="section-title anim-group"><h2>Common Queries</h2></div>
+                <div class="faq-accordion anim-group">
+                    <div class="faq-item"><button class="faq-question">What types of clients do you work with?<i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>We partner with a diverse range of clients, from ambitious startups seeking to disrupt markets to established Fortune 500 companies aiming to redefine their legacy.</p></div></div>
+                    <div class="faq-item"><button class="faq-question">How long does a project typically take?<i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>Timelines vary based on scope. A foundational branding project might take 4-6 weeks, while a full digital experience and video campaign could span several months.</p></div></div>
+                    <div class="faq-item"><button class="faq-question">What makes OPTILINE different?<i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>Our key differentiator is our fusion of high-level strategic thinking with world-class creative execution. We build strategic assets that drive business growth.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta-section">
+            <div class="container anim-group">
+                <h2>Let's Build The Future Together!</h2>
+                <a href="/contact/" class="cta-button">Start a Project <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <a href="/home/" class="logo"><img src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp" loading="lazy" alt="OPTILINE Logo"></a>
+                <p>OPTILINE is a creative agency dedicated to building the brands of tomorrow. We partner with visionaries to create work that matters.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4><ul><li><a href="/services/">Services</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/pricing/">Pricing</a></li></ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4><ul><li><a href="/contact/">Contact Us</a></li><li><a href="/home/#process">Our Process</a></li><li><a href="/careers/">Careers</a></li></ul>
+            </div>
+        </div>
+        <div class="copyright"><p>© 2025 OPTILINE. A New Era of Creativity.</p></div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
