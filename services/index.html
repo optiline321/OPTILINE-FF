@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Services | OPTILINE Agency</title>
+<meta content="Explore OPTILINE's core services: Brand &amp; Identity, Cinematic Video, and Digital Experiences. We build strategic assets that drive growth." name="description"/>
+<link href="/services/" rel="canonical"/>
+<link href="https://i.ibb.co/jvhxGcxT/FAV-3.webp" rel="icon" type="image/webp"/>
+<meta content="https://www.optiline.agency/services.html" property="og:url"/>
+<meta content="Our Services | OPTILINE Agency" property="og:title"/>
+<meta content="In-depth look at our creative and strategic service offerings." property="og:description"/>
+<meta content="https://www.optiline.agency/services.html" property="twitter:url"/>
+<meta content="Our Services | OPTILINE Agency" property="twitter:title"/>
+<meta content="In-depth look at our creative and strategic service offerings." property="twitter:description"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --primary-dark: #0A041A;
+            --secondary-dark: #12082F;
+            --accent-purple: #8A2BE2;
+            --accent-light: #A45EFF;
+            --text-light: #F0F0F8;
+            --text-gray: #B0B0C0;
+            --glow-color: rgba(164, 94, 255, 0.5);
+            --card-bg: rgba(18, 8, 47, 0.6);
+            --card-border-color: rgba(138, 43, 226, 0.25);
+            --transition-fast: 0.3s ease;
+            --transition-smooth: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --font-main: 'Inter', sans-serif;
+            --font-heading: 'Orbitron', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background-color: var(--primary-dark); color: var(--text-light); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        
+        /* Enhanced Floating Dots Background */
+        .floating-dots-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .floating-dot {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 25s infinite linear;
+            filter: blur(0.5px);
+        }
+        
+        .floating-dot:nth-child(2n) {
+            background: rgba(164, 94, 255, 0.4);
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+        
+        .floating-dot:nth-child(3n) {
+            background: rgba(255, 255, 255, 0.3);
+            animation-duration: 35s;
+            animation-delay: -5s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                opacity: 0.2;
+            }
+            25% {
+                transform: translate(80px, -40px) rotate(90deg) scale(1.05);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translate(160px, 0) rotate(180deg) scale(1.1);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translate(80px, 40px) rotate(270deg) scale(1.05);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg) scale(1);
+                opacity: 0.2;
+            }
+        }
+        
+        /* Particles container */
+        #particles-js { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: -2; 
+        }
+        
+        main, footer { position: relative; z-index: 2; background: transparent; }
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease; background-color: transparent; }
+        .main-header.scrolled { background-color: rgba(10, 4, 26, 0.7); backdrop-filter: blur(12px); padding: 8px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+        .logo img { height: 65px; transition: transform var(--transition-fast); }
+        .logo:hover img { transform: scale(1.1); }
+        .nav-links { display: flex; list-style: none; } .nav-links li { margin: 0 20px; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; padding: 5px 0; position: relative; transition: color var(--transition-fast); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: var(--accent-light); transition: width 0.4s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-light); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .hamburger { display: none; }
+        .page-hero { padding: 160px 0 80px; text-align: center; background: linear-gradient(180deg, rgba(18, 8, 47, 0.85), rgba(10, 4, 26, 0.8)); }
+        .page-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; }
+        .page-hero p { font-size: 1.1rem; color: var(--text-gray); max-width: 700px; margin: 0 auto; }
+        .subtle-glow { text-shadow: 0 0 5px rgba(255,255,255,0.2), 0 0 12px var(--glow-color), 0 0 20px var(--glow-color); }
+        .cta-button { display: inline-block; padding: 14px 35px; background: linear-gradient(45deg, var(--accent-purple), var(--accent-light)); color: #fff; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: transform var(--transition-fast), box-shadow var(--transition-fast); box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4); }
+        .cta-button:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 15px 35px rgba(138, 43, 226, 0.5); }
+        .cta-button .fa-arrow-right { margin-left: 10px; transition: transform 0.3s ease; }
+        .cta-button:hover .fa-arrow-right { transform: translateX(5px); }
+        .section { padding: 100px 0; }
+        .section-dark { background: radial-gradient(ellipse at 50% 100%, rgba(18, 8, 47, 0.85) 0%, rgba(10, 4, 26, 0.8) 80%); }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        .section-title p { max-width: 600px; margin: 1rem auto 0; color: var(--text-gray); font-size: 1rem; }
+        .service-detail-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 6rem; }
+        .service-detail-layout:last-of-type { margin-bottom: 0; }
+        .service-detail-layout:nth-child(even) .service-image { order: 2; }
+        .service-image { border-radius: 15px; overflow: hidden; height: 400px; }
+        .service-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .service-image:hover img { transform: scale(1.05); }
+        .service-content h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); margin-bottom: 1rem; }
+        .service-content p { margin-bottom: 1.5rem; color: var(--text-gray); font-size: 1rem; }
+        .service-features { list-style: none; padding: 0; margin-top: 2rem; }
+        .service-features li { display: flex; align-items: center; margin-bottom: 1rem; font-size: 1rem; }
+        .service-features i { color: var(--accent-light); margin-right: 15px; font-size: 1.1rem; }
+        
+        /* Industries Grid with Animated Line */
+        .industries-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 1.5rem; 
+            position: relative;
+        }
+        
+        .industry-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--card-border-color); 
+            border-radius: 15px; 
+            padding: 1.5rem; 
+            text-align: center; 
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .industry-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .industry-card:hover::before {
+            left: 100%;
+        }
+        
+        .industry-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .industry-icon { 
+            font-size: 2.5rem; 
+            margin-bottom: 1rem; 
+            color: var(--accent-light);
+            transition: transform 0.3s ease;
+        }
+        
+        .industry-card:hover .industry-icon {
+            transform: scale(1.1);
+        }
+        
+        .industry-card h3 { font-size: 1.2rem; margin: 0; }
+        
+        .cta-section { text-align: center; padding: 70px 0; }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 2rem; }
+        .main-footer { background-color: transparent; padding: 70px 5% 25px; border-top: 1px solid var(--card-border-color); }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-bottom: 2.5rem; text-align: left; }
+        .footer-about p { color: var(--text-gray); margin-top: 1rem; font-size: 0.95rem; }
+        .footer-links h4 { font-size: 1.1rem; margin-bottom: 1rem; }
+        .footer-links ul { list-style: none; padding: 0; } .footer-links li { margin-bottom: 0.7rem; }
+        .footer-links a { color: var(--text-gray); text-decoration: none; transition: color var(--transition-fast), padding-left var(--transition-fast); font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--accent-light); padding-left: 8px; }
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid var(--card-border-color); color: var(--text-gray); font-size: 0.85rem; }
+        
+        @media (max-width: 992px) {
+            .service-detail-layout { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+            .service-detail-layout:nth-child(even) .service-image { order: 1; }
+            .service-content { order: 2; }
+            .service-features { display: inline-block; text-align: left; }
+            .service-image { height: 350px; }
+        }
+        @media (max-width: 768px) {
+            .main-header { padding: 8px 5%; }
+            .logo img { height: 50px; }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background-color: var(--secondary-dark); flex-direction: column; justify-content: center; align-items: center; transition: right 0.5s ease-in-out; }
+            .nav-links.active { right: 0; } .nav-links li { margin: 20px 0; }
+            .hamburger { display: block; cursor: pointer; z-index: 1001; position: relative; width: 25px; height: 21px; }
+            .hamburger div { width: 100%; height: 3px; background-color: var(--text-light); position: absolute; left: 0; transition: all var(--transition-fast); }
+            .bar1 { top: 0; } .bar2 { top: 9px; } .bar3 { bottom: 0; }
+            .hamburger.active .bar1 { transform: rotate(45deg); top: 9px; } .hamburger.active .bar2 { opacity: 0; } .hamburger.active .bar3 { transform: rotate(-45deg); top: 9px; }
+            .page-hero { padding: 140px 0 60px; }
+            .section { padding: 80px 0; }
+            .service-detail-layout { margin-bottom: 4rem; }
+            .industries-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+            .industry-card { padding: 1.2rem; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 2rem; }
+            .service-content h2 { font-size: 1.6rem; }
+            .cta-button { padding: 12px 25px; font-size: 0.9rem; }
+            .industries-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://optiline.online/#organization", "name": "Our Services | OPTILINE Agency", "url": "https://optiline.online"}, {"@type": "WebSite", "@id": "https://optiline.online/#website", "url": "https://optiline.online", "name": "Our Services | OPTILINE Agency", "publisher": {"@id": "https://optiline.online/#organization"}}]}</script></head>
+<body>
+<div id="particles-js"></div>
+<div class="floating-dots-container" id="floatingDots"></div>
+<header class="main-header" id="header">
+<a class="logo" href="/home/"><img alt="OPTILINE Logo" src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp"/></a>
+<nav>
+<ul class="nav-links">
+<li><a href="/home/">Home</a></li>
+<li><a class="active" href="/services/">Services</a></li>
+<li><a href="/portfolio/">Portfolio</a></li>
+<li><a href="/pricing/">Pricing</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</nav>
+<div class="hamburger"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div></div>
+</header>
+<main>
+<section class="page-hero">
+<div class="container anim-group">
+<h1 class="subtle-glow">A Spectrum of Creative Services</h1>
+<p>We provide a comprehensive suite of creative services designed to build, launch, and grow influential brands across the digital and physical worlds.</p>
+</div>
+</section>
+<section class="section" id="detailed-services">
+<div class="container">
+<div class="service-detail-layout">
+<div class="service-image anim-group"><img alt="Brand &amp; Identity" loading="lazy" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&amp;w=2700&amp;auto=format&amp;fit=crop"/></div>
+<div class="service-content anim-group">
+<h2>Brand &amp; Identity</h2>
+<p>We build brands that are not only visually stunning but also deeply resonant. Our process involves a deep dive into your company's DNA to craft a comprehensive identity that tells your story, captivates your audience, and establishes a powerful market presence.</p>
+<ul class="service-features">
+<li><i class="fas fa-check-circle"></i>Brand Strategy &amp; Positioning</li>
+<li><i class="fas fa-check-circle"></i>Logo &amp; Visual Identity Systems</li>
+<li><i class="fas fa-check-circle"></i>Brand Guidelines &amp; Messaging</li>
+<li><i class="fas fa-check-circle"></i>Packaging &amp; Print Design</li>
+</ul>
+<a class="cta-button" href="/portfolio/" style="margin-top: 2rem;">View Branding Work <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="service-detail-layout">
+<div class="service-image anim-group"><img alt="Cinematic Video Production" loading="lazy" src="https://images.unsplash.com/photo-1516245834210-c4c1427873ab?q=80&amp;w=2670&amp;auto=format&amp;fit=crop"/></div>
+<div class="service-content anim-group">
+<h2>Cinematic Video</h2>
+<p>We create compelling video content that captures attention and drives action. From high-energy brand films to emotionally resonant storytelling, our in-house production team handles everything from concept to final cut.</p>
+<ul class="service-features">
+<li><i class="fas fa-check-circle"></i>Brand Films &amp; Commercials</li>
+<li><i class="fas fa-check-circle"></i>Social Media Video Campaigns</li>
+<li><i class="fas fa-check-circle"></i>Motion Graphics &amp; Animation</li>
+<li><i class="fas fa-check-circle"></i>Full-Service Production</li>
+</ul>
+<a class="cta-button" href="/portfolio/" style="margin-top: 2rem;">View Video Work <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+<div class="service-detail-layout">
+<div class="service-image anim-group"><img alt="Digital Experiences" loading="lazy" src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&amp;w=2672&amp;auto=format&amp;fit=crop"/></div>
+<div class="service-content anim-group">
+<h2>Digital Experiences</h2>
+<p>We design and develop beautiful, intuitive, and high-performance websites and digital platforms. Our user-centric approach ensures every interaction is seamless, engaging, and optimized to convert.</p>
+<ul class="service-features">
+<li><i class="fas fa-check-circle"></i>UI/UX Design &amp; Strategy</li>
+<li><i class="fas fa-check-circle"></i>Website &amp; App Development</li>
+<li><i class="fas fa-check-circle"></i>E-commerce Solutions</li>
+<li><i class="fas fa-check-circle"></i>Performance Optimization</li>
+</ul>
+<a class="cta-button" href="/portfolio/" style="margin-top: 2rem;">View Digital Work <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</section>
+<section class="section section-dark" id="industries">
+<div class="container">
+<div class="section-title anim-group">
+<h2>Industries We Serve</h2>
+<p>Our strategic and creative expertise transcends industries, allowing us to deliver impactful solutions for a diverse range of clients.</p>
+</div>
+<div class="industries-grid">
+<div class="industry-card anim-group"><div class="industry-icon"><i class="fas fa-rocket"></i></div><h3>Tech &amp; SaaS</h3></div>
+<div class="industry-card anim-group"><div class="industry-icon"><i class="fas fa-briefcase-medical"></i></div><h3>Healthcare</h3></div>
+<div class="industry-card anim-group"><div class="industry-icon"><i class="fas fa-store"></i></div><h3>E-Commerce</h3></div>
+<div class="industry-card anim-group"><div class="industry-icon"><i class="fas fa-landmark"></i></div><h3>Finance</h3></div>
+</div>
+</div>
+</section>
+<section class="section cta-section">
+<div class="container anim-group">
+<h2>Ready to Elevate Your Brand?</h2>
+<a class="cta-button" href="/contact/">Let's Discuss Your Project <i class="fas fa-arrow-right"></i></a>
+</div>
+</section>
+</main>
+<footer class="main-footer">
+<div class="container footer-content">
+<div class="footer-about">
+<a class="logo" href="/home/"><img alt="OPTILINE Logo" src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp"/></a>
+<p>OPTILINE is a creative agency dedicated to building the brands of tomorrow. We partner with visionaries to create work that matters.</p>
+</div>
+<div class="footer-links">
+<h4>Explore</h4><ul><li><a href="/home/">Home</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/pricing/">Pricing</a></li></ul>
+</div>
+<div class="footer-links">
+<h4>Support</h4><ul><li><a href="/contact/">Contact Us</a></li><li><a href="/home/#process">Our Process</a></li><li><a href="/careers/">Careers</a></li></ul>
+</div>
+</div>
+<div class="copyright"><p>© 2025 OPTILINE. A New Era of Creativity.</p></div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced particles with reduced dots
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 60,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#8A2BE2"
+                    },
+                    "shape": {
+                        "type": "circle"
+                    },
+                    "opacity": {
+                        "value": 0.4,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 0.5,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": false
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out"
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas"
+                },
+                "retina_detect": true
+            });
+            
+            // Create reduced floating dots
+            function createFloatingDots() {
+                const container = document.getElementById('floatingDots');
+                const dotCount = 25; // Reduced number of dots
+                
+                for (let i = 0; i < dotCount; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('floating-dot');
+                    
+                    // Random size between 2px and 5px
+                    const size = Math.random() * 3 + 2;
+                    dot.style.width = `${size}px`;
+                    dot.style.height = `${size}px`;
+                    
+                    // Random position across entire viewport
+                    dot.style.left = `${Math.random() * 100}%`;
+                    dot.style.top = `${Math.random() * 100}%`;
+                    
+                    container.appendChild(dot);
+                }
+            }
+            
+            createFloatingDots();
+            
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => { 
+                header.classList.toggle('scrolled', window.scrollY > 50); 
+            });
+            
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            hamburger.addEventListener('click', () => { 
+                hamburger.classList.toggle('active'); 
+                navLinks.classList.toggle('active'); 
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.utils.toArray('.anim-group').forEach(group => {
+                const anims = group.querySelectorAll('h1, h2, p, .cta-button, .service-image, .service-content > *, .service-features li, .industry-card');
+                gsap.from(anims, {
+                    y: 60, 
+                    opacity: 0, 
+                    duration: 1.2, 
+                    ease: "power3.out", 
+                    stagger: 0.1,
+                    scrollTrigger: { 
+                        trigger: group, 
+                        start: "top 85%", 
+                        toggleActions: "play none none none" 
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

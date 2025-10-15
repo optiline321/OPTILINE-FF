@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://optiline.online/sitemap.xml

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio | OPTILINE Agency</title>
+<meta content="Browse the portfolio of OPTILINE. See our work in logo design, branding, UI/UX, and video production for various clients." name="description"/>
+<link href="/portfolio/" rel="canonical"/>
+<link href="https://i.ibb.co/jvhxGcxT/FAV-3.webp" rel="icon" type="image/webp"/>
+<meta content="https://www.optiline.agency/portfolio.html" property="og:url"/>
+<meta content="Portfolio | OPTILINE Agency" property="og:title"/>
+<meta content="A showcase of our best work and creative solutions." property="og:description"/>
+<meta content="https://www.optiline.agency/portfolio.html" property="twitter:url"/>
+<meta content="Portfolio | OPTILINE Agency" property="twitter:title"/>
+<meta content="A showcase of our best work and creative solutions." property="twitter:description"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --primary-dark: #0A041A;
+            --secondary-dark: #12082F; 
+            --accent-purple: #8A2BE2;
+            --accent-light: #A45EFF;
+            --text-light: #F0F0F8;
+            --text-gray: #B0B0C0;
+            --glow-color: rgba(164, 94, 255, 0.5);
+            --card-bg: rgba(18, 8, 47, 0.6);
+            --card-border-color: rgba(138, 43, 226, 0.25); 
+            --transition-fast: 0.3s ease;
+            --transition-smooth: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --font-main: 'Inter', sans-serif;
+            --font-heading: 'Orbitron', sans-serif; 
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background-color: var(--primary-dark); color: var(--text-light); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        
+        /* Enhanced Floating Dots Background */
+        .floating-dots-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .floating-dot {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 25s infinite linear;
+            filter: blur(0.5px);
+        }
+        
+        .floating-dot:nth-child(2n) {
+            background: rgba(164, 94, 255, 0.4);
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+        
+        .floating-dot:nth-child(3n) {
+            background: rgba(255, 255, 255, 0.3);
+            animation-duration: 35s;
+            animation-delay: -5s;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                opacity: 0.2;
+            }
+            25% {
+                transform: translate(80px, -40px) rotate(90deg) scale(1.05);
+                opacity: 0.4;
+            }
+            50% {
+                transform: translate(160px, 0) rotate(180deg) scale(1.1);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translate(80px, 40px) rotate(270deg) scale(1.05);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg) scale(1);
+                opacity: 0.2;
+            }
+        }
+        
+        /* Particles container */
+        #particles-js { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: -2; 
+        }
+        
+        main, footer { position: relative; z-index: 2; background: transparent; }
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease; background-color: transparent; }
+        .main-header.scrolled { background-color: rgba(10, 4, 26, 0.7); backdrop-filter: blur(12px); padding: 8px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+        .logo img { height: 65px; transition: transform var(--transition-fast); }
+        .logo:hover img { transform: scale(1.1); }
+        .nav-links { display: flex; list-style: none; } .nav-links li { margin: 0 20px; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; padding: 5px 0; position: relative; transition: color var(--transition-fast); }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: var(--accent-light); transition: width 0.4s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-light); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .hamburger { display: none; }
+        .page-hero { padding: 160px 0 80px; text-align: center; background: linear-gradient(180deg, rgba(18, 8, 47, 0.85), rgba(10, 4, 26, 0.8)); position: relative; }
+        .page-hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 50% 50%, rgba(164, 94, 255, 0.1) 0%, transparent 70%); }
+        .page-hero h1 { font-size: clamp(2.3rem, 4.5vw, 3.5rem); margin-bottom: 1rem; text-align: center; width: 100%; }
+        .page-hero p { font-size: 1.1rem; color: var(--text-gray); max-width: 600px; margin: 0 auto; }
+        .subtle-glow { text-shadow: 0 0 5px rgba(255,255,255,0.2), 0 0 12px var(--glow-color), 0 0 20px var(--glow-color); }
+        .cta-button { display: inline-block; padding: 14px 35px; background: linear-gradient(45deg, var(--accent-purple), var(--accent-light)); color: #fff; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: transform var(--transition-fast), box-shadow var(--transition-fast); box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4); }
+        .cta-button:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 15px 35px rgba(138, 43, 226, 0.5); }
+        .cta-button .fa-arrow-right { margin-left: 10px; transition: transform 0.3s ease; }
+        .cta-button:hover .fa-arrow-right { transform: translateX(5px); }
+        .section { padding: 100px 0; }
+        .section-dark { background: radial-gradient(ellipse at 50% 100%, rgba(18, 8, 47, 0.85) 0%, rgba(10, 4, 26, 0.8) 80%); }
+        .filter-buttons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem; flex-wrap: wrap; width: 100%; position: relative; }
+        .filter-buttons::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, var(--card-border-color) 15%, var(--card-border-color) 85%, transparent 100%); z-index: -1; }
+        .filter-btn { background: var(--primary-dark); border: 1px solid var(--card-border-color); color: var(--text-light); padding: 10px 25px; border-radius: 30px; cursor: pointer; transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast); z-index: 1; }
+        .filter-btn:hover { transform: translateY(-3px); color: #fff; }
+        .filter-btn.active { background-color: var(--accent-purple); border-color: var(--accent-purple); color: #fff; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .portfolio-item { position: relative; border-radius: 15px; overflow: hidden; cursor: pointer; background: var(--card-bg); border: 1px solid var(--card-border-color); transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); }
+        .portfolio-item:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3); }
+        .portfolio-item img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.5s var(--transition-smooth); }
+        .portfolio-item .portfolio-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem; background: linear-gradient(to top, rgba(10, 4, 26, 0.95) 0%, rgba(10, 4, 26, 0.6) 50%, transparent 100%); opacity: 0; transition: opacity 0.4s ease; }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-item:hover img { transform: scale(1.05); }
+        .overlay-content { transform: translateY(20px); transition: transform 0.4s ease; }
+        .portfolio-item:hover .overlay-content { transform: translateY(0); }
+        .portfolio-overlay .category { color: var(--accent-light); font-weight: 600; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        .portfolio-overlay h3 { font-size: 1.5rem; margin: 0; color: var(--text-light); }
+        .cta-section { text-align: center; padding: 80px 0; }
+        .cta-section h2 { font-size: 2.3rem; margin-bottom: 2rem; }
+        .main-footer { background-color: transparent; padding: 80px 5% 30px; border-top: 1px solid var(--card-border-color); }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; margin-bottom: 3rem; text-align: left; }
+        .footer-about p { color: var(--text-gray); margin-top: 1rem; }
+        .footer-links h4 { font-size: 1.2rem; margin-bottom: 1rem; }
+        .footer-links ul { list-style: none; padding: 0; } .footer-links li { margin-bottom: 0.7rem; }
+        .footer-links a { color: var(--text-gray); text-decoration: none; transition: color var(--transition-fast), padding-left var(--transition-fast); }
+        .footer-links a:hover { color: var(--accent-light); padding-left: 8px; }
+        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid var(--card-border-color); color: var(--text-gray); font-size: 0.9rem; }
+        @media (max-width: 992px) { 
+            .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } 
+        }
+        @media (max-width: 768px) {
+            .main-header { padding: 8px 5%; }
+            .logo img { height: 50px; }
+            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background-color: var(--secondary-dark); flex-direction: column; justify-content: center; align-items: center; transition: right 0.5s ease-in-out; }
+            .nav-links.active { right: 0; } .nav-links li { margin: 20px 0; }
+            .hamburger { display: block; cursor: pointer; z-index: 1001; position: relative; width: 25px; height: 21px; }
+            .hamburger div { width: 100%; height: 3px; background-color: var(--text-light); position: absolute; left: 0; transition: all var(--transition-fast); }
+            .bar1 { top: 0; } .bar2 { top: 9px; } .bar3 { bottom: 0; }
+            .hamburger.active .bar1 { transform: rotate(45deg); top: 9px; } .hamburger.active .bar2 { opacity: 0; } .hamburger.active .bar3 { transform: rotate(-45deg); top: 9px; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .page-hero { padding: 140px 0 60px; }
+            .page-hero h1 { font-size: 2rem; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .filter-buttons::before { display: none; }
+            .filter-buttons { gap: 0.5rem; }
+            .filter-btn { padding: 8px 16px; font-size: 0.9rem; }
+        }
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 1.8rem; }
+            .page-hero p { font-size: 1rem; }
+            .cta-section h2 { font-size: 1.6rem; }
+            .cta-button { padding: 12px 25px; font-size: 0.9rem; }
+        }
+    </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://optiline.online/#organization", "name": "Portfolio | OPTILINE Agency", "url": "https://optiline.online"}, {"@type": "WebSite", "@id": "https://optiline.online/#website", "url": "https://optiline.online", "name": "Portfolio | OPTILINE Agency", "publisher": {"@id": "https://optiline.online/#organization"}}]}</script></head>
+<body>
+<div id="particles-js"></div>
+<div class="floating-dots-container" id="floatingDots"></div>
+<header class="main-header" id="header">
+<a class="logo" href="/home/"><img alt="OPTILINE Logo" src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp"/></a>
+<nav>
+<ul class="nav-links">
+<li><a href="/home/">Home</a></li>
+<li><a href="/services/">Services</a></li>
+<li><a class="active" href="/portfolio/">Portfolio</a></li>
+<li><a href="/pricing/">Pricing</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+</nav>
+<div class="hamburger"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div></div>
+</header>
+<main>
+<section class="page-hero">
+<div class="container anim-group">
+<h1 class="subtle-glow">Our Creative Showcase</h1>
+<p>A collection of our favorite projects. Each one is a story of collaboration, strategic thinking, and creative excellence.</p>
+</div>
+</section>
+<section class="section" id="portfolio-gallery">
+<div class="container">
+<div class="filter-buttons anim-group">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="branding">Branding</button>
+<button class="filter-btn" data-filter="video">Video</button>
+<button class="filter-btn" data-filter="marketing">Marketing</button>
+</div>
+<div class="portfolio-grid">
+<div class="portfolio-item" data-category="marketing"><img alt="Quantum Fintech App" loading="lazy" src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/><div class="portfolio-overlay"><div class="overlay-content"><p class="category">Marketing</p><h3>Quantum Fintech</h3></div></div></div>
+<div class="portfolio-item" data-category="video"><img alt="Nova Drones" loading="lazy" src="https://images.unsplash.com/photo-1516245834210-c4c1427873ab?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/><div class="portfolio-overlay"><div class="overlay-content"><p class="category">Video</p><h3>Nova Drones Launch</h3></div></div></div>
+<div class="portfolio-item" data-category="branding"><img alt="Project Alpha" loading="lazy" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/><div class="portfolio-overlay"><div class="overlay-content"><p class="category">Branding</p><h3>Corporate Rebrand</h3></div></div></div>
+<div class="portfolio-item" data-category="branding"><img alt="Project Epsilon" loading="lazy" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/><div class="portfolio-overlay"><div class="overlay-content"><p class="category">Branding</p><h3>Startup Identity</h3></div></div></div>
+<div class="portfolio-item" data-category="video"><img alt="Project Zeta" loading="lazy" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/><div class="portfolio-overlay"><div class="overlay-content"><p class="category">Video</p><h3>Social Media Campaign</h3></div></div></div>
+<div class="portfolio-item" data-category="marketing"><img alt="Project Delta" loading="lazy" src="https://images.unsplash.com/photo-1556740738-b6a63e2775d2?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/><div class="portfolio-overlay"><div class="overlay-content"><p class="category">Marketing</p><h3>E-commerce Platform</h3></div></div></div>
+<div class="portfolio-item" data-category="marketing"><img alt="Project UI" loading="lazy" src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&amp;w=800&amp;auto=format&amp;fit=crop"/><div class="portfolio-overlay"><div class="overlay-content"><p class="category">Marketing</p><h3>SaaS Dashboard</h3></div></div></div>
+</div>
+</div>
+</section>
+<section class="section section-dark cta-section">
+<div class="container anim-group">
+<h2>Have a Project in Mind?</h2>
+<a class="cta-button" href="/contact/">Let's Create Together <i class="fas fa-arrow-right"></i></a>
+</div>
+</section>
+</main>
+<footer class="main-footer">
+<div class="container footer-content">
+<div class="footer-about">
+<a class="logo" href="/home/"><img alt="OPTILINE Logo" src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp"/></a>
+<p>OPTILINE is a creative agency dedicated to building the brands of tomorrow. We partner with visionaries to create work that matters.</p>
+</div>
+<div class="footer-links">
+<h4>Explore</h4><ul><li><a href="/home/">Home</a></li><li><a href="/services/">Services</a></li><li><a href="/pricing/">Pricing</a></li></ul>
+</div>
+<div class="footer-links">
+<h4>Support</h4><ul><li><a href="/contact/">Contact Us</a></li><li><a href="/home/#process">Our Process</a></li><li><a href="/careers/">Careers</a></li></ul>
+</div>
+</div>
+<div class="copyright"><p>© 2025 OPTILINE. A New Era of Creativity.</p></div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced particles with reduced dots
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 60,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#8A2BE2"
+                    },
+                    "shape": {
+                        "type": "circle"
+                    },
+                    "opacity": {
+                        "value": 0.4,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 0.5,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": false
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out"
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas"
+                },
+                "retina_detect": true
+            });
+            
+            // Create reduced floating dots
+            function createFloatingDots() {
+                const container = document.getElementById('floatingDots');
+                const dotCount = 25; // Reduced number of dots
+                
+                for (let i = 0; i < dotCount; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('floating-dot');
+                    
+                    // Random size between 2px and 5px
+                    const size = Math.random() * 3 + 2;
+                    dot.style.width = `${size}px`;
+                    dot.style.height = `${size}px`;
+                    
+                    // Random position across entire viewport
+                    dot.style.left = `${Math.random() * 100}%`;
+                    dot.style.top = `${Math.random() * 100}%`;
+                    
+                    container.appendChild(dot);
+                }
+            }
+            
+            createFloatingDots();
+            
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => { 
+                header.classList.toggle('scrolled', window.scrollY > 50); 
+            });
+            
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            hamburger.addEventListener('click', () => { 
+                hamburger.classList.toggle('active'); 
+                navLinks.classList.toggle('active'); 
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            gsap.registerPlugin(ScrollTrigger);
+            const filterButtons = document.querySelectorAll('.filter-btn'); 
+            const portfolioItems = gsap.utils.toArray('.portfolio-item');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filterValue = button.getAttribute('data-filter');
+                          
+                    portfolioItems.forEach(item => { 
+                        const itemCategory = item.dataset.category;
+                        const shouldShow = (filterValue === 'all' || itemCategory === filterValue);
+    
+                         
+                        gsap.to(item, {
+                            duration: 0.5, opacity: shouldShow ? 1 : 0, scale: shouldShow ? 1 : 0.9, 
+                            onStart: () => { if(shouldShow) 
+                            item.style.display = 'block'; }, 
+                            onComplete: () => { if(!shouldShow) item.style.display = 'none'; }
+                        });
+                    });
+                });
+ 
+            }); 
+            gsap.utils.toArray('.anim-group').forEach(group => { 
+                const anims = group.querySelectorAll('h1, h2, p, .filter-buttons, .portfolio-item');
+                gsap.from(anims, { 
+                    y: 60, 
+                    opacity: 0, 
+                    duration: 1.2, 
+                    ease: "power3.out", 
+                    stagger: 0.1, 
+                    scrollTrigger: { 
+                        trigger: group, 
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    } 
+                });
+            });
+        }); 
+    </script>
+</body>
+</html>
