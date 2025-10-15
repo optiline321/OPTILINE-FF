@@ -1,201 +1,117 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contact Us | OPTILINE Agency</title>
-<meta content="Get in touch with OPTILINE to start your next project. Contact us for a free consultation on branding, design, and video production services." name="description"/>
-<link href="/contact/" rel="canonical"/>
-<link href="https://i.ibb.co/jvhxGcxT/FAV-3.webp" rel="icon" type="image/webp"/>
-<meta content="https://www.optiline.agency/contact.html" property="og:url"/>
-<meta content="Contact Us | OPTILINE Agency" property="og:title"/>
-<meta content="Ready to start your next project? We'd love to hear from you." property="og:description"/>
-<meta content="https://www.optiline.agency/contact.html" property="twitter:url"/>
-<meta content="Contact Us | OPTILINE Agency" property="twitter:title"/>
-<meta content="Ready to start your next project? We'd love to hear from you." property="twitter:description"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        :root {
-            --primary-dark: #0A041A;
-            --secondary-dark: #12082F;
-            --accent-purple: #8A2BE2;
-            --accent-light: #A45EFF;
-            --text-light: #F0F0F8;
-            --text-gray: #B0B0C0;
-            --glow-color: rgba(164, 94, 255, 0.5);
-            --card-bg: rgba(18, 8, 47, 0.6);
-            --card-border-color: rgba(138, 43, 226, 0.25);
-            --transition-fast: 0.3s ease;
-            --transition-smooth: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            --font-main: 'Inter', sans-serif;
-            --font-heading: 'Orbitron', sans-serif;
-        }
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-main); background-color: var(--primary-dark); color: var(--text-light); line-height: 1.7; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        main, footer { position: relative; z-index: 2; background: transparent; }
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease; }
-        .main-header.scrolled { background-color: rgba(10, 4, 26, 0.7); backdrop-filter: blur(12px); padding: 10px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
-        .logo img { height: 55px; transition: transform var(--transition-fast); }
-        .logo:hover img { transform: scale(1.1); }
-        .nav-links { display: flex; list-style: none; } .nav-links li { margin: 0 20px; }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; padding: 5px 0; position: relative; transition: color var(--transition-fast); }
-        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: var(--accent-light); transition: width 0.4s ease; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-light); }
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-        .hamburger { display: none; }
-        .page-hero { padding: 180px 0 100px; text-align: center; background: linear-gradient(180deg, rgba(18, 8, 47, 0.95), rgba(10, 4, 26, 0.9)); }
-        .page-hero h1 { font-size: clamp(3rem, 6vw, 4.5rem); margin-bottom: 1rem; }
-        .page-hero p { font-size: 1.2rem; color: var(--text-gray); max-width: 600px; margin: 0 auto; }
-        .subtle-glow { text-shadow: 0 0 5px rgba(255,255,255,0.2), 0 0 12px var(--glow-color), 0 0 20px var(--glow-color); }
-        .section { padding: 120px 0; }
-        .section-dark { background: radial-gradient(ellipse at 50% 100%, rgba(18, 8, 47, 0.95) 0%, rgba(10, 4, 26, 0.9) 80%); }
-        .section-title { text-align: center; margin-bottom: 5rem; }
-        .section-title h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
-        .section-title p { max-width: 600px; margin: 1rem auto 0; color: var(--text-gray); }
-        .contact-wrapper { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: start; }
-        .contact-form h2 { font-size: 2.5rem; margin-bottom: 2rem; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-gray); }
-        .form-group input, .form-group textarea { width: 100%; padding: 15px; background: var(--primary-dark); border: 1px solid var(--card-border-color); color: var(--text-light); border-radius: 8px; transition: border-color var(--transition-fast), box-shadow var(--transition-fast); }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-purple); box-shadow: 0 0 0 3px rgba(164, 94, 255, 0.7); }
-        .form-group textarea { resize: vertical; min-height: 150px; }
-        .cta-button { display: inline-block; padding: 16px 40px; background: linear-gradient(45deg, var(--accent-purple), var(--accent-light)); color: #fff; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
-        .cta-button:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4); }
-        .contact-info h3 { font-size: 1.5rem; margin-bottom: 1.5rem; }
-        .info-item { display: flex; align-items: flex-start; margin-bottom: 1.5rem; }
-        .info-icon { font-size: 1.5rem; color: var(--accent-light); margin-right: 1.5rem; margin-top: 4px; text-align: center; width: 25px; }
-        .social-icons { display: flex; gap: 1.5rem; margin-top: 2rem; }
-        .social-icons a { color: var(--text-gray); font-size: 1.5rem; transition: color var(--transition-fast), transform var(--transition-fast); }
-        .social-icons a:hover { color: var(--accent-light); transform: translateY(-3px); }
-        .next-steps-timeline { display: flex; flex-direction: column; gap: 2rem; }
-        .step-item { display: flex; align-items: flex-start; gap: 1.5rem; }
-        .step-number { background: linear-gradient(45deg, var(--accent-purple), var(--accent-light)); color: #fff; font-family: var(--font-heading); width: 50px; height: 50px; min-width: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 0 20px rgba(164, 94, 255, 0.5); }
-        .step-content h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .step-content p { color: var(--text-gray); }
-        .main-footer { background-color: transparent; padding: 80px 5% 30px; border-top: 1px solid var(--card-border-color); }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; margin-bottom: 3rem; text-align: left; }
-        .footer-about p { color: var(--text-gray); margin-top: 1rem; }
-        .footer-links h4 { font-size: 1.2rem; margin-bottom: 1rem; }
-        .footer-links ul { list-style: none; padding: 0; } .footer-links li { margin-bottom: 0.7rem; }
-        .footer-links a { color: var(--text-gray); text-decoration: none; transition: color var(--transition-fast), padding-left var(--transition-fast); }
-        .footer-links a:hover { color: var(--accent-light); padding-left: 8px; }
-        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid var(--card-border-color); color: var(--text-gray); font-size: 0.9rem; }
-        @media (max-width: 992px) { .contact-wrapper { grid-template-columns: 1fr; } .contact-info { margin-top: 4rem; } }
-        @media (max-width: 768px) {
-            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background-color: var(--secondary-dark); flex-direction: column; justify-content: center; align-items: center; transition: right 0.5s ease-in-out; }
-            .nav-links.active { right: 0; } .nav-links li { margin: 25px 0; }
-            .hamburger { display: block; cursor: pointer; z-index: 1001; position: relative; width: 25px; height: 21px; }
-            .hamburger div { width: 100%; height: 3px; background-color: var(--text-light); position: absolute; left: 0; transition: all var(--transition-fast); }
-            .bar1 { top: 0; } .bar2 { top: 9px; } .bar3 { bottom: 0; }
-            .hamburger.active .bar1 { transform: rotate(45deg); top: 9px; } .hamburger.active .bar2 { opacity: 0; } .hamburger.active .bar3 { transform: rotate(-45deg); top: 9px; }
-        }
-    </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://optiline.online/#organization", "name": "Contact Us | OPTILINE Agency", "url": "https://optiline.online"}, {"@type": "WebSite", "@id": "https://optiline.online/#website", "url": "https://optiline.online", "name": "Contact Us | OPTILINE Agency", "publisher": {"@id": "https://optiline.online/#organization"}}]}</script></head>
-<body>
-<div id="particles-js"></div>
-<header class="main-header" id="header">
-<a class="logo" href="/home/"><img alt="OPTILINE Logo" src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp"/></a>
-<nav>
-<ul class="nav-links">
-<li><a href="/home/">Home</a></li>
-<li><a href="/services/">Services</a></li>
-<li><a href="/portfolio/">Portfolio</a></li>
-<li><a href="/pricing/">Pricing</a></li>
-<li><a class="active" href="/contact/">Contact</a></li>
-</ul>
-</nav>
-<div class="hamburger"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div></div>
-</header>
-<main>
-<section class="page-hero">
-<div class="container anim-group">
-<h1 class="subtle-glow">Begin Your Legacy</h1>
-<p>Have a project in mind? We'd love to hear from you. Let's create something amazing together.</p>
-</div>
-</section>
-<section class="section" id="contact">
-<div class="container">
-<div class="contact-wrapper anim-group">
-<form class="contact-form">
-<h2>Send us a Message</h2>
-<div class="form-group"><label for="name">Full Name</label><input id="name" name="name" required="" type="text"/></div>
-<div class="form-group"><label for="email">Email Address</label><input id="email" name="email" required="" type="email"/></div>
-<div class="form-group"><label for="message">Tell us about your project</label><textarea id="message" name="message" placeholder="Include your goals, timeline, and budget if possible." required=""></textarea></div>
-<button class="cta-button" type="submit">Submit Form</button>
-</form>
-<div class="contact-info">
-<h3>Contact Information</h3>
-<p style="color: var(--text-gray); margin-bottom: 2rem;">Feel free to reach out via email, phone, or follow us on our social channels.</p>
-<div class="info-item"><i class="fas fa-map-marker-alt info-icon"></i><div><strong>Our Office</strong><br/>123 Creative Lane, Design City</div></div>
-<div class="info-item"><i class="fas fa-envelope info-icon"></i><div><strong>Email Us</strong><br/>hello@optiline.agency</div></div>
-<div class="info-item"><i class="fas fa-phone info-icon"></i><div><strong>Call Us</strong><br/>(555) 123-4567</div></div>
-<div class="social-icons">
-<a aria-label="Twitter" href="#" rel="noopener noreferrer" target="_blank"><i class="fab fa-twitter"></i></a>
-<a aria-label="Instagram" href="#" rel="noopener noreferrer" target="_blank"><i class="fab fa-instagram"></i></a>
-<a aria-label="LinkedIn" href="#" rel="noopener noreferrer" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-dark" id="next-steps">
-<div class="container">
-<div class="section-title anim-group">
-<h2>What to Expect Next</h2>
-<p>Our process is designed to be seamless and collaborative from the very first click.</p>
-</div>
-<div class="next-steps-timeline anim-group">
-<div class="step-item"><div class="step-number">1</div><div class="step-content"><h4>Submission &amp; Review</h4><p>Once you submit the form, our team will review your project details, typically within one business day.</p></div></div>
-<div class="step-item"><div class="step-number">2</div><div class="step-content"><h4>Discovery Call</h4><p>We'll schedule a complimentary 30-minute discovery call to dive deeper into your goals and vision.</p></div></div>
-<div class="step-item"><div class="step-number">3</div><div class="step-content"><h4>Custom Proposal</h4><p>Following our call, we'll craft a detailed, custom proposal outlining the project scope, timeline, and pricing.</p></div></div>
-</div>
-</div>
-</section>
-</main>
-<footer class="main-footer">
-<div class="container footer-content">
-<div class="footer-about">
-<a class="logo" href="/home/"><img alt="OPTILINE Logo" src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp"/></a>
-<p>OPTILINE is a creative agency dedicated to building the brands of tomorrow. We partner with visionaries to create work that matters.</p>
-</div>
-<div class="footer-links">
-<h4>Explore</h4><ul><li><a href="/home/">Home</a></li><li><a href="/services/">Services</a></li><li><a href="/portfolio/">Portfolio</a></li></ul>
-</div>
-<div class="footer-links">
-<h4>Support</h4><ul><li><a href="/pricing/">Pricing</a></li><li><a href="/home/#process">Our Process</a></li><li><a href="/careers/">Careers</a></li></ul>
-</div>
-</div>
-<div class="copyright"><p>© 2025 OPTILINE. A New Era of Creativity.</p></div>
-</footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            particlesJS("particles-js", {"particles":{"number":{"value":50,"density":{"enable":true,"value_area":800}},"color":{"value":"#8A2BE2"},"shape":{"type":"circle"},"opacity":{"value":0.5,"random":true,"anim":{"enable":true,"speed":0.5,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true},"line_linked":{"enable":false},"move":{"enable":true,"speed":1,"direction":"none","random":true,"straight":false,"out_mode":"out"}},"interactivity":{"detect_on":"canvas"},"retina_detect":true});
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); });
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | OPTILINE Agency</title>
+    
+    <meta name="description" content="Get in touch with OPTILINE to start your next project. Contact us for a free consultation on branding, design, and video production services.">
+    <link rel="canonical" href="https://optiline.online/contact/">
 
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.utils.toArray('.anim-group').forEach(group => {
-                const anims = group.querySelectorAll('h1, h2, p, .contact-wrapper > *, .step-item');
-                gsap.from(anims, {
-                    y: 60, opacity: 0, duration: 1.2, ease: "power3.out", stagger: 0.1,
-                    scrollTrigger: { trigger: group, start: "top 85%", toggleActions: "play none none none" }
-                });
-            });
-        });
-    </script>
+     <link rel="icon" type="image/webp" href="https://i.ibb.co/jvhxGcxT/FAV-3.webp">
+
+    <meta property="og:url" content="https://optiline.online/contact/">
+    <meta property="og:title" content="Contact Us | OPTILINE Agency">
+    <meta property="og:description" content="Ready to start your next project? We'd love to hear from you.">
+    
+    <meta property="twitter:url" content="https://optiline.online/contact/">
+    <meta property="twitter:title" content="Contact Us | OPTILINE Agency">
+    <meta property="twitter:description" content="Ready to start your next project? We'd love to hear from you.">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div id="particles-js"></div>
+
+    <header class="main-header" id="header">
+        <a href="/home/" class="logo"><img src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp" alt="OPTILINE Logo"></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/home/">Home</a></li>
+                <li><a href="/services/">Services</a></li>
+                <li><a href="/portfolio/">Portfolio</a></li>
+                <li><a href="/pricing/">Pricing</a></li>
+                <li><a href="/contact/" class="active">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger"><div class="bar1"></div><div class="bar2"></div><div class="bar3"></div></div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container anim-group">
+                <h1 class="subtle-glow">Begin Your Legacy</h1>
+                <p>Have a project in mind? We'd love to hear from you. Let's create something amazing together.</p>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="contact-wrapper anim-group">
+                    <form class="contact-form">
+                        <h2>Send us a Message</h2>
+                        <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" name="name" required></div>
+                        <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" required></div>
+                        <div class="form-group"><label for="message">Tell us about your project</label><textarea id="message" name="message" required placeholder="Include your goals, timeline, and budget if possible."></textarea></div>
+                        <button type="submit" class="cta-button">Submit Form</button>
+                    </form>
+                    
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p style="color: var(--text-gray); margin-bottom: 2rem;">Feel free to reach out via email, phone, or follow us on our social channels.</p>
+                        <div class="info-item"><i class="fas fa-map-marker-alt info-icon"></i><div><strong>Our Office</strong><br>123 Creative Lane, Design City</div></div>
+                        <div class="info-item"><i class="fas fa-envelope info-icon"></i><div><strong>Email Us</strong><br>hello@optiline.online</div></div>
+                        <div class="info-item"><i class="fas fa-phone info-icon"></i><div><strong>Call Us</strong><br>(555) 123-4567</div></div>
+                        <div class="social-icons">
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark" id="next-steps">
+            <div class="container">
+                <div class="section-title anim-group">
+                    <h2>What to Expect Next</h2>
+                    <p>Our process is designed to be seamless and collaborative from the very first click.</p>
+                </div>
+                <div class="next-steps-timeline anim-group">
+                    <div class="step-item"><div class="step-number">1</div><div class="step-content"><h4>Submission & Review</h4><p>Once you submit the form, our team will review your project details, typically within one business day.</p></div></div>
+                    <div class="step-item"><div class="step-number">2</div><div class="step-content"><h4>Discovery Call</h4><p>We'll schedule a complimentary 30-minute discovery call to dive deeper into your goals and vision.</p></div></div>
+                    <div class="step-item"><div class="step-number">3</div><div class="step-content"><h4>Custom Proposal</h4><p>Following our call, we'll craft a detailed, custom proposal outlining the project scope, timeline, and pricing.</p></div></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-about">
+                <a href="/home/" class="logo"><img src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp" loading="lazy" alt="OPTILINE Logo"></a>
+                <p>OPTILINE is a creative agency dedicated to building the brands of tomorrow. We partner with visionaries to create work that matters.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4><ul><li><a href="/home/">Home</a></li><li><a href="/services/">Services</a></li><li><a href="/portfolio/">Portfolio</a></li></ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4><ul><li><a href="/pricing/">Pricing</a></li><li><a href="/home/#process">Our Process</a></li><li><a href="/careers/">Careers</a></li></ul>
+            </div>
+        </div>
+        <div class="copyright"><p>© 2025 OPTILINE. A New Era of Creativity.</p></div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
