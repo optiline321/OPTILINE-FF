@@ -6,15 +6,15 @@
     <title>Pricing Plans | OPTILINE Agency</title>
     
     <meta name="description" content="Find the perfect pricing plan for your business needs. OPTILINE offers transparent and flexible packages for branding, video, and design services.">
-    <link rel="canonical" href="/pricing/">
+    <link rel="canonical" href="https://optiline.online/pricing/">
 
     <link rel="icon" type="image/webp" href="https://i.ibb.co/jvhxGcxT/FAV-3.webp"> 
 
-    <meta property="og:url" content="https://www.optiline.agency/pricing.html">
+    <meta property="og:url" content="https://optiline.online/pricing/">
     <meta property="og:title" content="Pricing Plans | OPTILINE Agency">
     <meta property="og:description" content="Transparent and flexible packages for branding, video, and design services.">
     
-    <meta property="twitter:url" content="https://www.optiline.agency/pricing.html">
+    <meta property="twitter:url" content="https://optiline.online/pricing/">
     <meta property="twitter:title" content="Pricing Plans | OPTILINE Agency">
     <meta property="twitter:description" content="Transparent and flexible packages for branding, video, and design services.">
 
@@ -23,131 +23,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        :root {
-            --primary-dark: #0A041A;
-            --secondary-dark: #12082F;
-            --accent-purple: #8A2BE2;
-            --accent-light: #A45EFF;
-            --text-light: #F0F0F8;
-            --text-gray: #B0B0C0;
-            --glow-color: rgba(164, 94, 255, 0.5);
-            --card-bg: rgba(18, 8, 47, 0.6);
-            --card-border-color: rgba(138, 43, 226, 0.25);
-            --transition-fast: 0.3s ease;
-            --transition-smooth: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            --font-main: 'Inter', sans-serif;
-            --font-heading: 'Orbitron', sans-serif;
-        }
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--font-main); background-color: var(--primary-dark); color: var(--text-light); line-height: 1.7; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        main, footer { position: relative; z-index: 2; background: transparent; }
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease; }
-        .main-header.scrolled { background-color: rgba(10, 4, 26, 0.7); backdrop-filter: blur(12px); padding: 8px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
-        .logo img { height: 65px; transition: transform var(--transition-fast); }
-        .logo:hover img { transform: scale(1.1); }
-        .nav-links { display: flex; list-style: none; } .nav-links li { margin: 0 20px; }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; padding: 5px 0; position: relative; transition: color var(--transition-fast); }
-        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: var(--accent-light); transition: width 0.4s ease; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-light); }
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-        .hamburger { display: none; }
-        .page-hero { padding: 160px 0 80px; text-align: center; background: transparent; position: relative; }
-        .page-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; display: flex; justify-content: center; align-items: center; text-align: center; }
-        .page-hero p { font-size: 1.1rem; color: var(--text-gray); max-width: 600px; margin: 0 auto 3rem; }
-        .subtle-glow { text-shadow: 0 0 5px rgba(255,255,255,0.2), 0 0 12px var(--glow-color), 0 0 20px var(--glow-color); }
-        
-        /* Updated Icons Section */
-        .hero-icons { display: flex; justify-content: center; align-items: center; gap: 4rem; margin: 3rem 0; flex-wrap: wrap; align-items: flex-start; }
-        .icon-item { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; opacity: 0; transform: translateY(30px); justify-content: flex-start; }
-        .icon-circle { width: 90px; height: 90px; border-radius: 20px; background: rgba(138, 43, 226, 0.1); border: 2px solid rgba(138, 43, 226, 0.3); display: flex; align-items: center; justify-content: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; backdrop-filter: blur(10px); flex-shrink: 0; }
-        .icon-circle::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(164, 94, 255, 0.2), transparent); transition: left 0.6s ease; }
-        .icon-circle:hover::before { left: 100%; }
-        .icon-circle:hover { background: rgba(138, 43, 226, 0.2); border-color: var(--accent-purple); transform: translateY(-8px) scale(1.05); box-shadow: 0 15px 40px rgba(138, 43, 226, 0.3); }
-        .icon-circle i { font-size: 2.2rem; background: linear-gradient(135deg, var(--accent-light), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; z-index: 2; position: relative; }
-        .icon-text { font-size: 0.95rem; color: var(--text-light); text-align: center; max-width: 120px; font-weight: 600; letter-spacing: 0.5px; }
-        
-        .cta-button { display: inline-block; width: 100%; text-align: center; padding: 16px 40px; background: linear-gradient(45deg, var(--accent-purple), var(--accent-light)); color: #fff; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: transform var(--transition-fast), box-shadow var(--transition-fast); box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4); }
-        .cta-button:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 15px 35px rgba(138, 43, 226, 0.5); }
-        .section { padding: 100px 0; }
-        .section-dark { background: radial-gradient(ellipse at 50% 100%, rgba(18, 8, 47, 0.95) 0%, rgba(10, 4, 26, 0.9) 80%); }
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { font-size: clamp(2rem, 4vw, 3rem); }
-        .section-title p { max-width: 600px; margin: 1rem auto 0; color: var(--text-gray); font-size: 1rem; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: stretch; }
-        .pricing-card { background: var(--card-bg); border: 2px solid var(--card-border-color); padding: 1.5rem; border-radius: 15px; text-align: center; transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); display: flex; flex-direction: column; height: 100%; cursor: pointer; position: relative; }
-        .pricing-card.selected { border-color: var(--accent-purple); box-shadow: 0 0 30px rgba(164, 94, 255, 0.7); transform: translateY(-10px) scale(1.05); }
-        .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, var(--accent-purple), var(--accent-light)); color: #fff; padding: 5px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-        .pricing-card h3 { font-size: 1.6rem; color: var(--accent-light); margin-top: 1.5rem; }
-        .price { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
-        .price span { font-size: 1rem; color: var(--text-gray); }
-        .pricing-card > p { color: var(--text-gray); min-height: 50px; font-size: 0.95rem; }
-        .pricing-features { list-style: none; padding: 0; margin: 1.5rem 0; text-align: left; flex-grow: 1; }
-        .pricing-features li { margin-bottom: 0.8rem; display: flex; align-items: center; font-size: 0.9rem; }
-        .pricing-features i { color: var(--accent-light); margin-right: 10px; }
-        .faq-accordion { max-width: 800px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid var(--card-border-color); overflow: hidden; }
-        .faq-question { width: 100%; background: transparent; border: none; color: var(--text-light); text-align: left; padding: 1.5rem 1rem; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
-        .faq-question:hover { background: rgba(138, 43, 226, 0.1); }
-        .faq-question i { transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-        .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--accent-light); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.4s ease; opacity: 0; padding: 0 1rem; }
-        .faq-item.active .faq-answer { max-height: 500px; opacity: 1; padding: 0 1rem 1.5rem; }
-        .faq-answer p { color: var(--text-gray); line-height: 1.6; }
-        .main-footer { background-color: transparent; padding: 60px 5% 30px; border-top: 1px solid var(--card-border-color); }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; text-align: left; }
-        .footer-about p { color: var(--text-gray); margin-top: 1rem; font-size: 0.95rem; }
-        .footer-links h4 { font-size: 1.1rem; margin-bottom: 1rem; }
-        .footer-links ul { list-style: none; padding: 0; } .footer-links li { margin-bottom: 0.7rem; }
-        .footer-links a { color: var(--text-gray); text-decoration: none; transition: color var(--transition-fast), padding-left var(--transition-fast); font-size: 0.9rem; }
-        .footer-links a:hover { color: var(--accent-light); padding-left: 8px; }
-        .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid var(--card-border-color); color: var(--text-gray); font-size: 0.85rem; }
-
-        @media (max-width: 768px) {
-            .main-header { padding: 10px 5%; }
-            .main-header.scrolled { padding: 8px 5%; }
-            .logo img { height: 50px; }
-            .nav-links { position: fixed; top: 0; right: -100%; width: 70%; height: 100vh; background-color: var(--secondary-dark); flex-direction: column; justify-content: center; align-items: center; transition: right 0.5s ease-in-out; }
-            .nav-links.active { right: 0; } .nav-links li { margin: 20px 0; }
-            .hamburger { display: block; cursor: pointer; z-index: 1001; position: relative; width: 25px; height: 21px; }
-            .hamburger div { width: 100%; height: 3px; background-color: var(--text-light); position: absolute; left: 0; transition: all var(--transition-fast); }
-            .bar1 { top: 0; } .bar2 { top: 9px; } .bar3 { bottom: 0; }
-            .hamburger.active .bar1 { transform: rotate(45deg); top: 9px; } .hamburger.active .bar2 { opacity: 0; } .hamburger.active .bar3 { transform: rotate(-45deg); top: 9px; }
-            .page-hero { padding: 140px 0 60px; }
-            .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); }
-            .page-hero p { font-size: 1rem; margin-bottom: 2.5rem; }
-            .hero-icons { gap: 2.5rem; margin: 2.5rem 0; align-items: flex-start; }
-            .icon-item { justify-content: flex-start; }
-            .icon-circle { width: 80px; height: 80px; }
-            .icon-circle i { font-size: 2rem; }
-            .icon-text { font-size: 0.85rem; max-width: 100px; }
-            .section { padding: 80px 0; }
-            .pricing-card.selected { transform: translateY(0) scale(1); }
-            .pricing-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .faq-question { font-size: 1rem; padding: 1.2rem 1rem; }
-            .footer-content { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
-        }
-
-        @media (max-width: 480px) {
-            .page-hero { padding: 120px 0 50px; }
-            .hero-icons { gap: 2rem; margin: 2rem 0; align-items: flex-start; }
-            .icon-item { justify-content: flex-start; }
-            .icon-circle { width: 70px; height: 70px; }
-            .icon-circle i { font-size: 1.8rem; }
-            .icon-text { font-size: 0.8rem; max-width: 90px; }
-            .section { padding: 60px 0; }
-            .pricing-card { padding: 1.2rem; }
-            .price { font-size: 2rem; }
-            .cta-button { padding: 14px 30px; font-size: 1rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+    <div class="custom-cursor"></div>
     <div id="particles-js"></div>
+
     <header class="main-header" id="header">
         <a href="/home/" class="logo"><img src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp" alt="OPTILINE Logo"></a>
         <nav>
@@ -164,36 +45,17 @@
 
     <main>
         <section class="page-hero">
-            <div class="container anim-group">
-                <h1 class="subtle-glow">Strategic Investment Plans</h1>
-                <p>Transparent pricing for transformative results. Choose the plan that aligns with your vision.</p>
+            <div class="container">
+                <div class="anim-group">
+                    <h1 class="subtle-glow">Strategic Investment Plans</h1>
+                    <p>Transparent pricing for transformative results. Choose the plan that aligns with your vision.</p>
+                </div>
                 
-                <!-- Updated Icons Section -->
                 <div class="hero-icons">
-                    <div class="icon-item" data-delay="0">
-                        <div class="icon-circle">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="icon-text">Fast Delivery</div>
-                    </div>
-                    <div class="icon-item" data-delay="0.1">
-                        <div class="icon-circle">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                        <div class="icon-text">Premium Quality</div>
-                    </div>
-                    <div class="icon-item" data-delay="0.2">
-                        <div class="icon-circle">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <div class="icon-text">24/7 Support</div>
-                    </div>
-                    <div class="icon-item" data-delay="0.3">
-                        <div class="icon-circle">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="icon-text">Secure & Safe</div>
-                    </div>
+                    <div class="icon-item" data-delay="0"><div class="icon-circle"><i class="fas fa-rocket"></i></div><div class="icon-text">Fast Delivery</div></div>
+                    <div class="icon-item" data-delay="0.1"><div class="icon-circle"><i class="fas fa-medal"></i></div><div class="icon-text">Premium Quality</div></div>
+                    <div class="icon-item" data-delay="0.2"><div class="icon-circle"><i class="fas fa-headset"></i></div><div class="icon-text">24/7 Support</div></div>
+                    <div class="icon-item" data-delay="0.3"><div class="icon-circle"><i class="fas fa-shield-alt"></i></div><div class="icon-text">Secure & Safe</div></div>
                 </div>
             </div>
         </section>
@@ -270,7 +132,7 @@
     <footer class="main-footer">
         <div class="container footer-content">
             <div class="footer-about">
-                <a href="/home/" class="logo"><img src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp" alt="OPTILINE Logo"></a>
+                <a href="/home/" class="logo"><img src="https://i.ibb.co/ZpvD9mSj/OPTILINE-LOGO.webp" loading="lazy" alt="OPTILINE Logo"></a>
                 <p>OPTILINE is a creative agency dedicated to building the brands of tomorrow. We partner with visionaries to create work that matters.</p>
             </div>
             <div class="footer-links">
@@ -286,125 +148,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 1000
-                        }
-                    },
-                    "color": {
-                        "value": "#8A2BE2"
-                    },
-                    "shape": {
-                        "type": "circle"
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": true,
-                        "anim": {
-                            "enable": true,
-                            "speed": 0.5,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 4,
-                        "random": true
-                    },
-                    "line_linked": {
-                        "enable": false
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 1.5,
-                        "direction": "none",
-                        "random": true,
-                        "straight": false,
-                        "out_mode": "out"
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas"
-                },
-                "retina_detect": true
-            });
-            
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
-            
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            hamburger.addEventListener('click', () => { 
-                hamburger.classList.toggle('active'); 
-                navLinks.classList.toggle('active'); 
-            });
-
-            // Animate icons with GSAP
-            const iconItems = document.querySelectorAll('.icon-item');
-            iconItems.forEach((item, index) => {
-                const delay = parseFloat(item.getAttribute('data-delay')) || 0;
-                gsap.to(item, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    delay: 0.5 + delay,
-                    ease: "back.out(1.7)"
-                });
-            });
-
-            const pricingCards = document.querySelectorAll('.pricing-card');
-            pricingCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    pricingCards.forEach(c => c.classList.remove('selected'));
-                    card.classList.add('selected');
-                });
-            });
-            
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-                    
-                    faqItems.forEach(i => {
-                        if (i !== item) {
-                            i.classList.remove('active');
-                        }
-                    });
-                    
-                    if (!isActive) {
-                        item.classList.add('active');
-                    } else {
-                        item.classList.remove('active');
-                    }
-                });
-            });
-
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.utils.toArray('.anim-group').forEach(group => {
-                const anims = group.querySelectorAll('h1, h2, p, .pricing-card, .faq-item');
-                gsap.from(anims, {
-                    y: 60, 
-                    opacity: 0, 
-                    duration: 1.2, 
-                    ease: "power3.out", 
-                    stagger: 0.1,
-                    scrollTrigger: { 
-                        trigger: group, 
-                        start: "top 85%", 
-                        toggleActions: "play none none none" 
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>
