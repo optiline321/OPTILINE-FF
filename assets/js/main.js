@@ -70,27 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 3. CUSTOM CURSOR ---
-
-    const cursor = document.querySelector('.custom-cursor');
-    if (cursor) {
-        window.addEventListener('mousemove', e => {
-            gsap.to(cursor, {
-                duration: 0.3,
-                x: e.clientX,
-                y: e.clientY,
-                ease: 'power2.out'
-            });
-        });
-
-        const interactiveElements = 'a, button, .portfolio-item, .pricing-card, .faq-question, .hamburger, .logo, input, textarea, .filter-btn';
-        document.querySelectorAll(interactiveElements).forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
-    }
-
-    // --- 4. GLOBAL SCROLL-TRIGGERED ANIMATIONS ---
+    // --- 3. GLOBAL SCROLL-TRIGGERED ANIMATIONS ---
 
     gsap.utils.toArray('.anim-group').forEach(group => {
         const anims = group.querySelectorAll('h1, h2, h3, h4, p, .cta-button, .logo-grid i, .service-card, .stat-card, .testimonial-card, .team-member, .faq-item, .process-step, .feature-card, .work-item, .blog-post-card, .view-all-work-btn, .service-image, .service-content > *, .service-features li, .industry-card, .filter-buttons, .portfolio-item, .pricing-card, .icon-item, .contact-wrapper > *, .step-item, .job-card, .no-openings');
@@ -105,13 +85,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollTrigger: {
                     trigger: group,
                     start: "top 85%",
-                    toggleActions: "play none none none"
+                    toggleActions: "play none none none",
+                    markers: false // Disable markers for production
                 }
             });
         }
     });
 
-    // --- 5. PAGE-SPECIFIC LOGIC ---
+    // --- 4. PAGE-SPECIFIC LOGIC ---
 
     // Home Page: Stats Counter
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -197,4 +178,38 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-});
+
+    // --- 5. PERFORMANCE OPTIMIZATIONS ---
+    
+    // Debounce scroll events
+    function debounce(func, wait = 10, immediate = true) {
+        let timeout;
+        return function() {
+            const context = this, args = arguments;
+            const later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            const callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
+    // Optimize scroll performance
+    window.addEventListener('scroll', debounce(() => {
+        // Any scroll-dependent logic goes here
+    }));
+
+    // Preload critical images
+    function preloadImages() {
+        const criticalImages = document.querySelectorAll('img[data-src]');
+        criticalImages.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    }
+
+    // Initialize after page load
+    window.addEventListener('load', preloadImages);
+}); 
