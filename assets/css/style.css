@@ -8,8 +8,11 @@
     --glow-color: rgba(164, 94, 255, 0.5);
     --card-bg: rgba(18, 8, 47, 0.7);
     --card-border-color: rgba(138, 43, 226, 0.25);
-    --transition-fast: 0.3s ease;
-    --transition-smooth: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    /* UPDATED: Transitions are faster and smoother */
+    --transition-fast: 0.25s ease-out;
+    --transition-smooth: 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+
     --font-main: 'Inter', sans-serif;
     --font-heading: 'Orbitron', sans-serif;
 }
@@ -31,9 +34,9 @@ body {
     color: var(--text-light); 
     line-height: 1.7; 
     overflow-x: hidden; 
+    /* REMOVED: cursor: none; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    will-change: transform, opacity;
 }
 
 /* --- Global Elements --- */
@@ -95,6 +98,15 @@ a:hover {
     color: var(--text-light); 
 }
 
+/* --- Custom Cursor --- */
+/* REMOVED: .custom-cursor block */
+/* REMOVED: .custom-cursor.hover block */
+
+/* ADDED: Restored default cursor behavior */
+a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburger, .logo, input, textarea {
+    cursor: pointer;
+}
+
 /* --- Background Effects --- */
 #particles-js, .floating-dots-container {
     position: fixed;
@@ -111,7 +123,6 @@ a:hover {
     border-radius: 50%;
     animation: float 25s infinite linear;
     filter: blur(0.5px);
-    will-change: transform, opacity;
 }
 
 @keyframes float {
@@ -142,7 +153,6 @@ a:hover {
     align-items: center; 
     transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease; 
     background-color: transparent; 
-    will-change: background-color, padding, backdrop-filter;
 }
 
 .main-header.scrolled { 
@@ -155,7 +165,6 @@ a:hover {
 .logo img { 
     height: 65px; 
     transition: transform var(--transition-fast); 
-    will-change: transform;
 }
 
 .logo:hover img { 
@@ -189,7 +198,8 @@ a:hover {
     width: 0; 
     height: 2px; 
     background: var(--accent-light); 
-    transition: width 0.4s ease; 
+    /* UPDATED: Uses smooth transition variable */
+    transition: width var(--transition-smooth); 
 }
 
 .nav-links a:hover, .nav-links a.active { 
@@ -260,6 +270,7 @@ a:hover {
     letter-spacing: 1px; 
     transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4); 
+    /* ADDED: Performance hint for smoother animation */
     will-change: transform, box-shadow;
 }
 
@@ -270,7 +281,8 @@ a:hover {
 
 .cta-button .fa-arrow-right { 
     margin-left: 10px; 
-    transition: transform 0.3s ease; 
+    /* UPDATED: Uses fast transition variable */
+    transition: transform var(--transition-fast); 
 }
 
 .cta-button:hover .fa-arrow-right { 
@@ -325,7 +337,8 @@ a:hover {
     padding: 2rem 1.5rem; 
     text-align: center; 
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); 
-    will-change: transform, box-shadow, border-color;
+    /* ADDED: Performance hint */
+    will-change: transform, box-shadow;
 }
 
 .service-card:hover { 
@@ -341,7 +354,8 @@ a:hover {
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     background-clip: text; 
-    transition: transform 0.3s ease; 
+    /* UPDATED: Uses fast transition variable */
+    transition: transform var(--transition-fast); 
 }
 
 .service-card:hover .service-icon { 
@@ -371,7 +385,8 @@ a:hover {
     padding: 2rem 1.5rem; 
     text-align: left; 
     transition: background-color var(--transition-fast), transform var(--transition-fast); 
-    will-change: background-color, transform;
+    /* ADDED: Performance hint */
+    will-change: transform;
 }
 
 .feature-card:hover { 
@@ -423,7 +438,9 @@ a:hover {
     height: 100%; 
     object-fit: cover; 
     display: block; 
-    transition: transform 0.4s ease; 
+    /* UPDATED: Uses smooth transition variable */
+    transition: transform var(--transition-smooth); 
+    /* ADDED: Performance hint */
     will-change: transform;
 }
 
@@ -459,7 +476,8 @@ a:hover {
 
 .view-project-btn i { 
     margin-left: 8px; 
-    transition: transform 0.3s ease; 
+    /* UPDATED: Uses fast transition variable */
+    transition: transform var(--transition-fast); 
 }
 
 .view-project-btn:hover i { 
@@ -483,6 +501,7 @@ a:hover {
     border-radius: 15px; 
     overflow: hidden; 
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); 
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
@@ -500,8 +519,8 @@ a:hover {
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
-    transition: transform 0.4s ease; 
-    will-change: transform;
+    /* UPDATED: Uses smooth transition variable */
+    transition: transform var(--transition-smooth); 
 }
 
 .blog-post-card:hover .blog-post-img img { 
@@ -547,6 +566,7 @@ a:hover {
     transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     position: relative; 
     overflow: hidden; 
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
@@ -559,7 +579,8 @@ a:hover {
     height: 4px; 
     background: linear-gradient(90deg, var(--accent-purple), var(--accent-light)); 
     transform: scaleX(0); 
-    transition: transform 0.4s ease; 
+    /* UPDATED: Uses smooth transition variable */
+    transition: transform var(--transition-smooth); 
 }
 
 .stat-card:hover::before { 
@@ -644,7 +665,8 @@ a:hover {
     position: relative; 
     border-radius: 6px; 
     transition: border-color var(--transition-fast), transform var(--transition-fast); 
-    will-change: border-color, transform;
+    /* ADDED: Performance hint */
+    will-change: transform, border-color;
 }
 
 .process-step:hover .process-content { 
@@ -686,7 +708,9 @@ a:hover {
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
-    transition: transform 0.4s ease; 
+    /* UPDATED: Uses smooth transition variable */
+    transition: transform var(--transition-smooth); 
+    /* ADDED: Performance hint */
     will-change: transform;
 }
 
@@ -720,6 +744,7 @@ a:hover {
     flex-direction: column; 
     justify-content: space-between; 
     height: 100%; 
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
@@ -778,7 +803,9 @@ a:hover {
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
-    transition: transform 0.4s ease; 
+    /* UPDATED: Uses smooth transition variable */
+    transition: transform var(--transition-smooth); 
+    /* ADDED: Performance hint */
     will-change: transform;
 }
 
@@ -832,6 +859,7 @@ a:hover {
     transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     position: relative; 
     overflow: hidden; 
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
@@ -843,7 +871,8 @@ a:hover {
     width: 100%; 
     height: 2px; 
     background: linear-gradient(90deg, transparent, var(--accent-light), transparent); 
-    transition: left 0.6s ease; 
+    /* UPDATED: Uses smooth transition variable */
+    transition: left var(--transition-smooth); 
 }
 
 .industry-card:hover::before { 
@@ -887,7 +916,6 @@ a:hover {
     padding: 10px 25px; 
     border-radius: 30px; 
     transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast); 
-    will-change: background-color, color, transform;
 }
 
 .filter-btn:hover { 
@@ -914,6 +942,7 @@ a:hover {
     background: var(--card-bg); 
     border: 1px solid var(--card-border-color); 
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); 
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
@@ -927,8 +956,8 @@ a:hover {
     height: 280px; 
     object-fit: cover; 
     display: block; 
-    transition: transform 0.5s var(--transition-smooth); 
-    will-change: transform;
+    /* UPDATED: Uses smooth transition variable */
+    transition: transform var(--transition-smooth); 
 }
 
 .portfolio-item .portfolio-overlay { 
@@ -940,7 +969,8 @@ a:hover {
     padding: 2rem; 
     background: linear-gradient(to top, rgba(10, 4, 26, 0.95) 0%, rgba(10, 4, 26, 0.6) 50%, transparent 100%); 
     opacity: 0; 
-    transition: opacity 0.4s ease; 
+    /* UPDATED: Uses smooth transition variable */
+    transition: opacity var(--transition-smooth); 
 }
 
 .portfolio-item:hover .portfolio-overlay { 
@@ -953,7 +983,8 @@ a:hover {
 
 .overlay-content { 
     transform: translateY(20px); 
-    transition: transform 0.4s ease; 
+    /* UPDATED: Uses smooth transition variable */
+    transition: transform var(--transition-smooth); 
 }
 
 .portfolio-item:hover .overlay-content { 
@@ -1004,7 +1035,6 @@ a:hover {
     align-items: center; 
     justify-content: center; 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    will-change: background, border-color, transform, box-shadow;
 }
 
 .icon-circle:hover { 
@@ -1048,7 +1078,8 @@ a:hover {
     flex-direction: column; 
     height: 100%; 
     position: relative; 
-    will-change: transform, box-shadow, border-color;
+    /* ADDED: Performance hint */
+    will-change: transform, box-shadow;
 }
 
 .pricing-card.selected { 
@@ -1131,7 +1162,8 @@ a:hover {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    transition: all 0.3s ease; 
+    /* UPDATED: Uses fast transition variable */
+    transition: all var(--transition-fast); 
 }
 
 .faq-question:hover { 
@@ -1153,7 +1185,8 @@ a:hover {
 .faq-answer { 
     max-height: 0; 
     overflow: hidden; 
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+    /* UPDATED: Uses smooth transition variable */
+    transition: max-height var(--transition-smooth); 
 }
 
 .faq-answer p { 
@@ -1290,7 +1323,9 @@ a:hover {
     flex-wrap: wrap; 
     justify-content: space-between; 
     align-items: center; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    /* UPDATED: Uses fast transition variable */
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
@@ -1408,16 +1443,6 @@ a:hover {
     font-size: 0.85rem; 
 }
 
-/* --- Performance Optimizations --- */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
 /* --- Media Queries --- */
 @media (max-width: 992px) {
     .service-detail-layout { 
@@ -1453,6 +1478,8 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+    /* REMOVED: All .custom-cursor, body, and a/button cursor styles */
+
     .main-header { 
         padding: 8px 5%; 
     }
