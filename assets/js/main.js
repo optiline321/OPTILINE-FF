@@ -70,7 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 3. GLOBAL SCROLL-TRIGGERED ANIMATIONS ---
+    // --- 3. CUSTOM CURSOR ---
+    // REMOVED: Entire custom cursor JavaScript block
+
+    // --- 4. GLOBAL SCROLL-TRIGGERED ANIMATIONS ---
+    // UPDATED: Tuned for a faster, smoother, more dynamic feel.
 
     gsap.utils.toArray('.anim-group').forEach(group => {
         const anims = group.querySelectorAll('h1, h2, h3, h4, p, .cta-button, .logo-grid i, .service-card, .stat-card, .testimonial-card, .team-member, .faq-item, .process-step, .feature-card, .work-item, .blog-post-card, .view-all-work-btn, .service-image, .service-content > *, .service-features li, .industry-card, .filter-buttons, .portfolio-item, .pricing-card, .icon-item, .contact-wrapper > *, .step-item, .job-card, .no-openings');
@@ -79,20 +83,19 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.from(anims, {
                 y: 50,
                 opacity: 0,
-                duration: 1,
-                ease: "power3.out",
-                stagger: 0.1,
+                duration: 0.8,     // UPDATED: Faster duration (was 1)
+                ease: "expo.out",  // UPDATED: Smoother, more dynamic ease (was power3.out)
+                stagger: 0.08,     // UPDATED: Tighter stagger (was 0.1)
                 scrollTrigger: {
                     trigger: group,
                     start: "top 85%",
-                    toggleActions: "play none none none",
-                    markers: false // Disable markers for production
+                    toggleActions: "play none none none"
                 }
             });
         }
     });
 
-    // --- 4. PAGE-SPECIFIC LOGIC ---
+    // --- 5. PAGE-SPECIFIC LOGIC ---
 
     // Home Page: Stats Counter
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -128,12 +131,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     const shouldShow = (filterValue === 'all' || itemCategory === filterValue);
 
                      gsap.to(item, {
-                        duration: 0.5,
-                        opacity: shouldShow ? 1 : 0,
-                        scale: shouldShow ? 1 : 0.9,
-                        onStart: () => { if(shouldShow) item.style.display = 'block'; },
-                        onComplete: () => { if(!shouldShow) item.style.display = 'none'; }
-                    });
+                         duration: 0.5,
+                         opacity: shouldShow ? 1 : 0,
+                         scale: shouldShow ? 1 : 0.9,
+                         onStart: () => { if(shouldShow) item.style.display = 'block'; },
+                         onComplete: () => { if(!shouldShow) item.style.display = 'none'; }
+                     });
                 });
             });
         });
@@ -178,38 +181,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
-    // --- 5. PERFORMANCE OPTIMIZATIONS ---
-    
-    // Debounce scroll events
-    function debounce(func, wait = 10, immediate = true) {
-        let timeout;
-        return function() {
-            const context = this, args = arguments;
-            const later = function() {
-                timeout = null;
-                if (!immediate) func.apply(context, args);
-            };
-            const callNow = immediate && !timeout;
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-            if (callNow) func.apply(context, args);
-        };
-    }
-
-    // Optimize scroll performance
-    window.addEventListener('scroll', debounce(() => {
-        // Any scroll-dependent logic goes here
-    }));
-
-    // Preload critical images
-    function preloadImages() {
-        const criticalImages = document.querySelectorAll('img[data-src]');
-        criticalImages.forEach(img => {
-            img.src = img.dataset.src;
-        });
-    }
-
-    // Initialize after page load
-    window.addEventListener('load', preloadImages);
-}); 
+});
