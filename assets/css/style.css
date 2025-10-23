@@ -31,9 +31,9 @@ body {
     color: var(--text-light); 
     line-height: 1.7; 
     overflow-x: hidden; 
-    cursor: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    will-change: transform, opacity;
 }
 
 /* --- Global Elements --- */
@@ -95,33 +95,6 @@ a:hover {
     color: var(--text-light); 
 }
 
-/* --- Custom Cursor --- */
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 25px;
-    height: 25px;
-    border: 2px solid var(--accent-light);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease, transform 0.03s linear;
-    z-index: 9999;
-    backdrop-filter: invert(1);
-}
-
-.custom-cursor.hover {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(164, 94, 255, 0.2);
-    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, transform 0.03s linear;
-}
-
-a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburger, .logo {
-    cursor: none;
-}
-
 /* --- Background Effects --- */
 #particles-js, .floating-dots-container {
     position: fixed;
@@ -138,6 +111,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border-radius: 50%;
     animation: float 25s infinite linear;
     filter: blur(0.5px);
+    will-change: transform, opacity;
 }
 
 @keyframes float {
@@ -168,6 +142,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     align-items: center; 
     transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease; 
     background-color: transparent; 
+    will-change: background-color, padding, backdrop-filter;
 }
 
 .main-header.scrolled { 
@@ -180,6 +155,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 .logo img { 
     height: 65px; 
     transition: transform var(--transition-fast); 
+    will-change: transform;
 }
 
 .logo:hover img { 
@@ -284,6 +260,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     letter-spacing: 1px; 
     transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4); 
+    will-change: transform, box-shadow;
 }
 
 .cta-button:hover { 
@@ -348,6 +325,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     padding: 2rem 1.5rem; 
     text-align: center; 
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); 
+    will-change: transform, box-shadow, border-color;
 }
 
 .service-card:hover { 
@@ -393,6 +371,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     padding: 2rem 1.5rem; 
     text-align: left; 
     transition: background-color var(--transition-fast), transform var(--transition-fast); 
+    will-change: background-color, transform;
 }
 
 .feature-card:hover { 
@@ -445,6 +424,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     object-fit: cover; 
     display: block; 
     transition: transform 0.4s ease; 
+    will-change: transform;
 }
 
 .work-image:hover img { 
@@ -503,6 +483,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border-radius: 15px; 
     overflow: hidden; 
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); 
+    will-change: transform, box-shadow;
 }
 
 .blog-post-card:hover { 
@@ -520,6 +501,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     height: 100%; 
     object-fit: cover; 
     transition: transform 0.4s ease; 
+    will-change: transform;
 }
 
 .blog-post-card:hover .blog-post-img img { 
@@ -565,6 +547,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     position: relative; 
     overflow: hidden; 
+    will-change: transform, box-shadow;
 }
 
 .stat-card::before { 
@@ -661,6 +644,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     position: relative; 
     border-radius: 6px; 
     transition: border-color var(--transition-fast), transform var(--transition-fast); 
+    will-change: border-color, transform;
 }
 
 .process-step:hover .process-content { 
@@ -703,6 +687,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     height: 100%; 
     object-fit: cover; 
     transition: transform 0.4s ease; 
+    will-change: transform;
 }
 
 .team-member:hover .team-member-img img { 
@@ -735,6 +720,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     flex-direction: column; 
     justify-content: space-between; 
     height: 100%; 
+    will-change: transform, box-shadow;
 }
 
 .testimonial-card:hover { 
@@ -793,6 +779,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     height: 100%; 
     object-fit: cover; 
     transition: transform 0.4s ease; 
+    will-change: transform;
 }
 
 .service-image:hover img { 
@@ -845,6 +832,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     position: relative; 
     overflow: hidden; 
+    will-change: transform, box-shadow;
 }
 
 .industry-card::before { 
@@ -899,6 +887,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     padding: 10px 25px; 
     border-radius: 30px; 
     transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast); 
+    will-change: background-color, color, transform;
 }
 
 .filter-btn:hover { 
@@ -925,6 +914,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     background: var(--card-bg); 
     border: 1px solid var(--card-border-color); 
     transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); 
+    will-change: transform, box-shadow;
 }
 
 .portfolio-item:hover { 
@@ -938,6 +928,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     object-fit: cover; 
     display: block; 
     transition: transform 0.5s var(--transition-smooth); 
+    will-change: transform;
 }
 
 .portfolio-item .portfolio-overlay { 
@@ -1013,6 +1004,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     align-items: center; 
     justify-content: center; 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    will-change: background, border-color, transform, box-shadow;
 }
 
 .icon-circle:hover { 
@@ -1056,6 +1048,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     flex-direction: column; 
     height: 100%; 
     position: relative; 
+    will-change: transform, box-shadow, border-color;
 }
 
 .pricing-card.selected { 
@@ -1298,6 +1291,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     justify-content: space-between; 
     align-items: center; 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    will-change: transform, box-shadow;
 }
 
 .job-card:hover { 
@@ -1414,6 +1408,16 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     font-size: 0.85rem; 
 }
 
+/* --- Performance Optimizations --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* --- Media Queries --- */
 @media (max-width: 992px) {
     .service-detail-layout { 
@@ -1449,18 +1453,6 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 }
 
 @media (max-width: 768px) {
-    .custom-cursor { 
-        display: none; 
-    }
-    
-    body { 
-        cursor: auto; 
-    }
-    
-    a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburger, .logo { 
-        cursor: pointer; 
-    }
-
     .main-header { 
         padding: 8px 5%; 
     }
