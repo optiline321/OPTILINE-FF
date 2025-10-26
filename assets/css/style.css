@@ -1092,16 +1092,19 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     transform: translateY(-10px) scale(1.05); 
 }
 
-.popular-badge {
-    top: auto;
-    bottom: 100%;
-    left: 90%;
-    transform: translateY(0) rotate(10deg);
-    background: linear-gradient(135deg, var(--accent-light), var(--accent-purple));
-    padding: 0.3rem 0.9rem;
-    font-size: 0.8rem;
-    animation: none;
-  }
+.popular-badge { 
+    position: absolute; 
+    top: -15px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: linear-gradient(45deg, var(--accent-purple), var(--accent-light)); 
+    color: #fff; 
+    padding: 5px 20px; 
+    border-radius: 20px; 
+    font-size: 0.9rem; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+}
 
 .pricing-card h3 { 
     font-size: 1.6rem; 
@@ -1636,6 +1639,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
         grid-template-columns: 1fr; 
     }
 }
+
 
 
 
