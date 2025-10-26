@@ -1140,9 +1140,10 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     margin-right: 10px; 
 }
 
+
 /* --- START: FAQ Animation Update --- */
 /* This section is shared by home/index.html and pricing/index.html */
-/* It has been updated for a smoother animation. */
+/* It has been CORRECTED to fix the bug where text was not appearing. */
 
 .faq-accordion { 
     max-width: 800px; 
@@ -1151,7 +1152,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 
 .faq-item { 
     border-bottom: 1px solid var(--card-border-color); 
-    overflow: hidden; /* This is crucial for max-height animation */
+    overflow: hidden; 
 }
 
 .faq-question { 
@@ -1173,7 +1174,6 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 }
 
 .faq-question i { 
-    /* Updated transition for a "bouncy" effect */
     transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
 }
 
@@ -1188,33 +1188,33 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 .faq-answer { 
     max-height: 0; 
     overflow: hidden; 
-    /* UPDATED: Added padding transitions for a smoother open/close */
-    transition: max-height var(--transition-smooth), padding-top var(--transition-smooth), padding-bottom var(--transition-smooth); 
-    padding-top: 0;
-    padding-bottom: 0;
+    /* MODIFIED: Reverted to only animate max-height */
+    transition: max-height var(--transition-smooth); 
 }
 
 .faq-answer p { 
     color: var(--text-gray); 
     line-height: 1.6; 
-    padding: 0 1rem 0; /* Padding moved from parent for animation */
+    /* MODIFIED: Restored original padding */
+    padding: 0 1rem 1.5rem; 
+    
+    /* ADDED: Animation properties for the text */
     opacity: 0;
     transform: translateY(-10px);
-    /* UPDATED: Added smooth transition for the text itself */
     transition: opacity 0.3s ease, transform 0.3s ease;
     will-change: opacity, transform;
 }
 
 .faq-item.active .faq-answer { 
-    max-height: 500px; /* Set to a large value to allow content to show */
-    padding-bottom: 1.5rem; /* Re-adds bottom padding when active */
+    max-height: 500px; 
 }
 
-/* ADDED: This new rule animates the text *after* the accordion opens */
+/* ADDED: This rule makes the text visible ONLY when active */
 .faq-item.active .faq-answer p {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.2s; /* Waits for the box to open a bit first */
+    /* ADDED: Delay ensures the box opens *before* text fades in */
+    transition-delay: 0.2s; 
 }
 /* --- END: FAQ Animation Update --- */
 
