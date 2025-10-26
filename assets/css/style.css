@@ -1053,9 +1053,8 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 }
 
 /* --- START: Icon Alignment Fix --- */
-/* This rule targets the specific "Premium Quality" icon (fa-medal) and adjusts its vertical alignment. */
 .icon-circle i.fa-medal {
-    transform: translateY(2px); /* Adjust as needed, positive values move it down */
+    transform: translateY(2px);
 }
 /* --- END: Icon Alignment Fix --- */
 
@@ -1149,8 +1148,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 
 
 /* --- START: FAQ Animation Update --- */
-/* This section is shared by home/index.html and pricing/index.html */
-/* It has been CORRECTED to fix the bug where text was not appearing. */
+/* هذا هو الكود الصحيح. أعتذر عن الأخطاء السابقة */
 
 .faq-accordion { 
     max-width: 800px; 
@@ -1195,32 +1193,31 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 .faq-answer { 
     max-height: 0; 
     overflow: hidden; 
-    /* MODIFIED: Reverted to only animate max-height */
+    /* الحركة الأساسية لفتح الصندوق */
     transition: max-height var(--transition-smooth); 
 }
 
 .faq-answer p { 
     color: var(--text-gray); 
     line-height: 1.6; 
-    /* MODIFIED: Restored original padding */
-    padding: 0 1rem 1.5rem; 
+    padding: 0 1rem 1.5rem; /* الحشوة الأصلية */
     
-    /* ADDED: Animation properties for the text */
+    /* إخفاء النص وتحضيره للحركة */
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(10px); /* ابدأ 10 بكسل للأسفل */
     transition: opacity 0.3s ease, transform 0.3s ease;
     will-change: opacity, transform;
 }
 
 .faq-item.active .faq-answer { 
-    max-height: 500px; 
+    max-height: 500px; /* القيمة الكبيرة لفتح الصندوق */
 }
 
-/* ADDED: This rule makes the text visible ONLY when active */
 .faq-item.active .faq-answer p {
+    /* إظهار النص عند فتح الصندوق */
     opacity: 1;
-    transform: translateY(0);
-    /* ADDED: Delay ensures the box opens *before* text fades in */
+    transform: translateY(0); /* تحريكه لمكانه الأصلي */
+    /* تأخير الحركة حتى يبدأ الصندوق بالفتح أولاً */
     transition-delay: 0.2s; 
 }
 /* --- END: FAQ Animation Update --- */
