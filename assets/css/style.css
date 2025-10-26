@@ -1072,19 +1072,18 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     align-items: stretch; 
 }
 
-.pricing-card { 
-    background: var(--card-bg); 
-    border: 2px solid var(--card-border-color); 
-    padding: 1.5rem; 
-    border-radius: 15px; 
-    text-align: center; 
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); 
-    display: flex; 
-    flex-direction: column; 
-    height: 100%; 
-    position: relative; 
-    /* ADDED: Performance hint */
-    will-change: transform, box-shadow;
+.popular-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-purple));
+    color: #fff;
+    padding: 0.4rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 2;
 }
 
 .pricing-card.selected { 
@@ -1637,6 +1636,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
         grid-template-columns: 1fr; 
     }
 }
+
 
 
 
