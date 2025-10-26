@@ -9,10 +9,9 @@
     --card-bg: rgba(18, 8, 47, 0.7);
     --card-border-color: rgba(138, 43, 226, 0.25);
     
-    /* ENHANCED: Optimized transitions for performance */
-    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --transition-bounce: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* UPDATED: Transitions are faster and smoother */
+    --transition-fast: 0.25s ease-out;
+    --transition-smooth: 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
 
     --font-main: 'Inter', sans-serif;
     --font-heading: 'Orbitron', sans-serif;
@@ -35,12 +34,9 @@ body {
     color: var(--text-light); 
     line-height: 1.7; 
     overflow-x: hidden; 
+    /* REMOVED: cursor: none; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* ENHANCED: Hardware acceleration */
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000;
 }
 
 /* --- Global Elements --- */
@@ -102,11 +98,13 @@ a:hover {
     color: var(--text-light); 
 }
 
-/* ENHANCED: Restored default cursor behavior with performance */
+/* --- Custom Cursor --- */
+/* REMOVED: .custom-cursor block */
+/* REMOVED: .custom-cursor.hover block */
+
+/* ADDED: Restored default cursor behavior */
 a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburger, .logo, input, textarea {
     cursor: pointer;
-    /* ENHANCED: Prevent layout shifts */
-    transform: translateZ(0);
 }
 
 /* --- Background Effects --- */
@@ -123,33 +121,21 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 .floating-dot {
     position: absolute;
     border-radius: 50%;
-    animation: floatEnhanced 30s infinite linear;
+    animation: float 25s infinite linear;
     filter: blur(0.5px);
-    /* ENHANCED: Hardware acceleration */
-    will-change: transform, opacity;
-    transform: translateZ(0);
 }
 
-/* ENHANCED: Smoother floating animation */
-@keyframes floatEnhanced {
+@keyframes float {
     0% { 
-        transform: translate(0, 0) scale(1) rotate(0deg); 
+        transform: translate(0, 0) scale(1); 
         opacity: 0.2; 
     }
-    25% { 
-        transform: translate(40px, -20px) scale(1.05) rotate(90deg); 
-        opacity: 0.4; 
-    }
     50% { 
-        transform: translate(80px, 0) scale(1.1) rotate(180deg); 
+        transform: translate(160px, 0) scale(1.1); 
         opacity: 0.6; 
     }
-    75% { 
-        transform: translate(40px, 20px) scale(1.05) rotate(270deg); 
-        opacity: 0.4; 
-    }
     100% { 
-        transform: translate(0, 0) scale(1) rotate(360deg); 
+        transform: translate(0, 0) scale(1); 
         opacity: 0.2; 
     }
 }
@@ -165,11 +151,8 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    transition: background-color 0.4s ease, padding 0.4s ease, backdrop-filter 0.4s ease; 
     background-color: transparent; 
-    /* ENHANCED: Hardware acceleration */
-    transform: translateZ(0);
-    will-change: transform, background-color, padding, backdrop-filter;
 }
 
 .main-header.scrolled { 
@@ -182,8 +165,6 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 .logo img { 
     height: 65px; 
     transition: transform var(--transition-fast); 
-    /* ENHANCED: Hardware acceleration */
-    transform: translateZ(0);
 }
 
 .logo:hover img { 
@@ -217,6 +198,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     width: 0; 
     height: 2px; 
     background: var(--accent-light); 
+    /* UPDATED: Uses smooth transition variable */
     transition: width var(--transition-smooth); 
 }
 
@@ -246,8 +228,6 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     line-height: 1.1; 
     font-weight: 900; 
     margin-bottom: 1.5rem; 
-    /* ENHANCED: Animation performance */
-    transform: translateZ(0);
 }
 
 .hero p { 
@@ -288,12 +268,10 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     text-decoration: none; 
     text-transform: uppercase; 
     letter-spacing: 1px; 
-    transition: all var(--transition-bounce); 
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    /* ADDED: Performance hint for smoother animation */
     will-change: transform, box-shadow;
-    backface-visibility: hidden;
 }
 
 .cta-button:hover { 
@@ -303,6 +281,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 
 .cta-button .fa-arrow-right { 
     margin-left: 10px; 
+    /* UPDATED: Uses fast transition variable */
     transition: transform var(--transition-fast); 
 }
 
@@ -336,14 +315,12 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 .logo-grid i { 
     font-size: 3rem; 
     color: var(--text-gray); 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Hardware acceleration */
-    transform: translateZ(0);
+    transition: color var(--transition-fast), transform var(--transition-fast); 
 }
 
 .logo-grid i:hover { 
     color: var(--text-light); 
-    transform: scale(1.1) rotate(5deg); 
+    transform: scale(1.1); 
 }
 
 .services-grid { 
@@ -359,14 +336,13 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border-radius: 15px; 
     padding: 2rem 1.5rem; 
     text-align: center; 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
-    will-change: transform, box-shadow, border-color;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); 
+    /* ADDED: Performance hint */
+    will-change: transform, box-shadow;
 }
 
 .service-card:hover { 
-    transform: translateY(-10px) scale(1.02); 
+    transform: translateY(-10px); 
     box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
     border-color: var(--accent-light); 
 }
@@ -378,11 +354,12 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     background-clip: text; 
-    transition: transform var(--transition-bounce); 
+    /* UPDATED: Uses fast transition variable */
+    transition: transform var(--transition-fast); 
 }
 
 .service-card:hover .service-icon { 
-    transform: scale(1.1) rotate(5deg); 
+    transform: scale(1.1); 
 }
 
 .service-card h3 { 
@@ -407,26 +384,20 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border-radius: 15px; 
     padding: 2rem 1.5rem; 
     text-align: left; 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
-    will-change: transform, background-color;
+    transition: background-color var(--transition-fast), transform var(--transition-fast); 
+    /* ADDED: Performance hint */
+    will-change: transform;
 }
 
 .feature-card:hover { 
     background-color: var(--card-bg); 
-    transform: translateY(-8px) scale(1.02); 
+    transform: translateY(-8px); 
 }
 
 .feature-icon { 
     font-size: 2.2rem; 
     color: var(--accent-light); 
     margin-bottom: 1.5rem; 
-    transition: transform var(--transition-fast); 
-}
-
-.feature-card:hover .feature-icon { 
-    transform: scale(1.1); 
 }
 
 .feature-card h3 { 
@@ -460,8 +431,6 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border-radius: 15px; 
     overflow: hidden; 
     box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
-    /* ENHANCED: Prevent layout shifts */
-    transform: translateZ(0);
 }
 
 .work-image img { 
@@ -469,9 +438,9 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     height: 100%; 
     object-fit: cover; 
     display: block; 
+    /* UPDATED: Uses smooth transition variable */
     transition: transform var(--transition-smooth); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    /* ADDED: Performance hint */
     will-change: transform;
 }
 
@@ -507,6 +476,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 
 .view-project-btn i { 
     margin-left: 8px; 
+    /* UPDATED: Uses fast transition variable */
     transition: transform var(--transition-fast); 
 }
 
@@ -530,14 +500,13 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border: 1px solid var(--card-border-color); 
     border-radius: 15px; 
     overflow: hidden; 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); 
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
 .blog-post-card:hover { 
-    transform: translateY(-10px) scale(1.02); 
+    transform: translateY(-10px); 
     box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
 }
 
@@ -550,10 +519,8 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
+    /* UPDATED: Uses smooth transition variable */
     transition: transform var(--transition-smooth); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
-    will-change: transform;
 }
 
 .blog-post-card:hover .blog-post-img img { 
@@ -596,11 +563,10 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border-radius: 15px; 
     padding: 2.5rem 2rem; 
     text-align: center; 
-    transition: all var(--transition-bounce); 
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     position: relative; 
     overflow: hidden; 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
@@ -613,6 +579,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     height: 4px; 
     background: linear-gradient(90deg, var(--accent-purple), var(--accent-light)); 
     transform: scaleX(0); 
+    /* UPDATED: Uses smooth transition variable */
     transition: transform var(--transition-smooth); 
 }
 
@@ -621,7 +588,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 }
 
 .stat-card:hover { 
-    transform: translateY(-8px) scale(1.02); 
+    transform: translateY(-8px); 
     box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2); 
 }
 
@@ -697,9 +664,8 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border: 1px solid transparent; 
     position: relative; 
     border-radius: 6px; 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    transition: border-color var(--transition-fast), transform var(--transition-fast); 
+    /* ADDED: Performance hint */
     will-change: transform, border-color;
 }
 
@@ -742,9 +708,9 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
+    /* UPDATED: Uses smooth transition variable */
     transition: transform var(--transition-smooth); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    /* ADDED: Performance hint */
     will-change: transform;
 }
 
@@ -773,18 +739,17 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border-radius: 15px; 
     padding: 2.5rem; 
     text-align: center; 
-    transition: all var(--transition-bounce); 
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     display: flex; 
     flex-direction: column; 
     justify-content: space-between; 
     height: 100%; 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
 .testimonial-card:hover { 
-    transform: translateY(-8px) scale(1.02); 
+    transform: translateY(-8px); 
     box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
 }
 
@@ -838,9 +803,9 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
+    /* UPDATED: Uses smooth transition variable */
     transition: transform var(--transition-smooth); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    /* ADDED: Performance hint */
     will-change: transform;
 }
 
@@ -891,11 +856,10 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     border-radius: 15px; 
     padding: 1.5rem; 
     text-align: center; 
-    transition: all var(--transition-bounce); 
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
     position: relative; 
     overflow: hidden; 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
@@ -907,6 +871,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     width: 100%; 
     height: 2px; 
     background: linear-gradient(90deg, transparent, var(--accent-light), transparent); 
+    /* UPDATED: Uses smooth transition variable */
     transition: left var(--transition-smooth); 
 }
 
@@ -915,7 +880,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 }
 
 .industry-card:hover { 
-    transform: translateY(-10px) scale(1.02); 
+    transform: translateY(-10px); 
     box-shadow: 0 20px 40px rgba(0,0,0,0.2); 
 }
 
@@ -923,11 +888,11 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     font-size: 2.5rem; 
     margin-bottom: 1rem; 
     color: var(--accent-light); 
-    transition: transform var(--transition-bounce); 
+    transition: transform 0.3s ease; 
 }
 
 .industry-card:hover .industry-icon { 
-    transform: scale(1.1) rotate(5deg); 
+    transform: scale(1.1); 
 }
 
 .industry-card h3 { 
@@ -950,13 +915,11 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     color: var(--text-light); 
     padding: 10px 25px; 
     border-radius: 30px; 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast); 
 }
 
 .filter-btn:hover { 
-    transform: translateY(-3px) scale(1.05); 
+    transform: translateY(-3px); 
     color: #fff; 
 }
 
@@ -964,7 +927,6 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     background-color: var(--accent-purple); 
     border-color: var(--accent-purple); 
     color: #fff; 
-    transform: translateY(-3px) scale(1.05); 
 }
 
 .portfolio-grid { 
@@ -979,14 +941,13 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     overflow: hidden; 
     background: var(--card-bg); 
     border: 1px solid var(--card-border-color); 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth); 
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
 .portfolio-item:hover { 
-    transform: translateY(-10px) scale(1.02); 
+    transform: translateY(-10px); 
     box-shadow: 0 20px 40px rgba(138, 43, 226, 0.3); 
 }
 
@@ -995,10 +956,8 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     height: 280px; 
     object-fit: cover; 
     display: block; 
+    /* UPDATED: Uses smooth transition variable */
     transition: transform var(--transition-smooth); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
-    will-change: transform;
 }
 
 .portfolio-item .portfolio-overlay { 
@@ -1010,6 +969,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     padding: 2rem; 
     background: linear-gradient(to top, rgba(10, 4, 26, 0.95) 0%, rgba(10, 4, 26, 0.6) 50%, transparent 100%); 
     opacity: 0; 
+    /* UPDATED: Uses smooth transition variable */
     transition: opacity var(--transition-smooth); 
 }
 
@@ -1023,6 +983,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 
 .overlay-content { 
     transform: translateY(20px); 
+    /* UPDATED: Uses smooth transition variable */
     transition: transform var(--transition-smooth); 
 }
 
@@ -1074,10 +1035,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
-    will-change: transform, background, border-color, box-shadow;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
 .icon-circle:hover { 
@@ -1120,14 +1078,13 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     padding: 1.5rem; 
     border-radius: 15px; 
     text-align: center; 
-    transition: all var(--transition-bounce); 
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); 
     display: flex; 
     flex-direction: column; 
     height: 100%; 
     position: relative; 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
-    will-change: transform, box-shadow, border-color;
+    /* ADDED: Performance hint */
+    will-change: transform, box-shadow;
 }
 
 .pricing-card.selected { 
@@ -1136,183 +1093,131 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     transform: translateY(-10px) scale(1.05); 
 }
 
-/* ENHANCED: Fixed "Most Popular" badge positioning */
 .popular-badge {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(45deg, var(--accent-purple), var(--accent-light));
-    color: white;
-    padding: 0.4rem 1.2rem;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    z-index: 10;
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-    white-space: nowrap;
-    /* ENHANCED: Ensure badge stays above other cards */
-    margin-bottom: 25px;
-}
+    top: auto;
+    bottom: 100%;
+    left: 90%;
+    transform: translateY(0) rotate(10deg);
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-purple));
+    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    animation: none;
+  }
 
 .pricing-card h3 { 
-    font-size: 1.5rem; 
-    margin-bottom: 0.5rem; 
-    margin-top: 0.5rem; 
-}
-
-.pricing-card .price { 
-    font-size: 3rem; 
-    font-weight: 900; 
+    font-size: 1.6rem; 
     color: var(--accent-light); 
-    margin: 1.5rem 0; 
-    font-family: var(--font-heading); 
+    margin-top: 1.5rem; 
 }
 
-.pricing-card .price span { 
-    font-size: 1rem; 
-    color: var(--text-gray); 
-    font-weight: normal; 
+.price { 
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    margin-bottom: 1rem; 
 }
 
-.pricing-card .price-desc { 
+.pricing-card > p { 
     color: var(--text-gray); 
-    font-size: 0.9rem; 
-    margin-bottom: 1.5rem; 
+    min-height: 50px; 
+    font-size: 0.95rem; 
 }
 
 .pricing-features { 
     list-style: none; 
     padding: 0; 
     margin: 1.5rem 0; 
+    text-align: left; 
     flex-grow: 1; 
 }
 
 .pricing-features li { 
+    margin-bottom: 0.8rem; 
     display: flex; 
     align-items: center; 
-    margin-bottom: 1rem; 
-    font-size: 0.95rem; 
-    text-align: left; 
+    font-size: 0.9rem; 
 }
 
 .pricing-features i { 
     color: var(--accent-light); 
     margin-right: 10px; 
-    font-size: 1rem; 
 }
 
-.pricing-card .cta-button { 
-    margin-top: auto; 
-}
-
-.faq-grid { 
-    display: grid; 
-    grid-template-columns: 1fr; 
-    gap: 1rem; 
+/* --- FAQ Accordion (Shared) --- */
+.faq-accordion { 
     max-width: 800px; 
     margin: 0 auto; 
 }
 
 .faq-item { 
-    background: var(--card-bg); 
-    border: 1px solid var(--card-border-color); 
-    border-radius: 10px; 
+    border-bottom: 1px solid var(--card-border-color); 
     overflow: hidden; 
-    transition: all var(--transition-fast); 
 }
 
 .faq-question { 
-    padding: 1.5rem; 
+    width: 100%; 
+    background: transparent; 
+    border: none; 
+    color: var(--text-light); 
+    text-align: left; 
+    padding: 1.5rem 1rem; 
+    font-size: 1.1rem; 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    cursor: pointer; 
     transition: background-color var(--transition-fast); 
 }
 
 .faq-question:hover { 
-    background-color: rgba(138, 43, 226, 0.1); 
+    background: rgba(138, 43, 226, 0.1); 
 }
 
-.faq-question h3 { 
-    font-size: 1.1rem; 
-    margin: 0; 
-    font-family: var(--font-main); 
-    text-transform: none; 
-    letter-spacing: normal; 
+.faq-question i { 
+    transition: transform 0.3s ease-in-out; 
 }
 
-.faq-answer { 
-    padding: 0 1.5rem; 
-    max-height: 0; 
-    overflow: hidden; 
-    transition: all var(--transition-smooth); 
-}
-
-.faq-answer p { 
-    margin-bottom: 1.5rem; 
-    color: var(--text-gray); 
-}
-
-.faq-item.active .faq-answer { 
-    max-height: 500px; 
-    padding-bottom: 1.5rem; 
-}
-
-/* --- Contact Page Specific --- */
-.contact-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 3rem; 
-}
-
-.contact-info { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 2rem; 
-}
-
-.contact-card { 
-    background: var(--card-bg); 
-    border: 1px solid var(--card-border-color); 
-    border-radius: 15px; 
-    padding: 2rem; 
-    text-align: center; 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
-    will-change: transform, box-shadow;
-}
-
-.contact-card:hover { 
-    transform: translateY(-8px) scale(1.02); 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2); 
-}
-
-.contact-icon { 
-    font-size: 2.5rem; 
-    margin-bottom: 1rem; 
+.faq-item.active .faq-question { 
     color: var(--accent-light); 
 }
 
-.contact-card h3 { 
-    font-size: 1.3rem; 
-    margin-bottom: 0.5rem; 
+.faq-item.active .faq-question i { 
+    transform: rotate(180deg); 
 }
 
-.contact-card p { 
+.faq-answer { 
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+    transition: max-height 0.2s ease-in-out, 
+                opacity 0.2s ease-in-out, 
+                padding 0.2s ease-in-out;
+}
+
+.faq-answer p { 
     color: var(--text-gray); 
-    margin-bottom: 0.5rem; 
+    line-height: 1.6; 
+    padding: 0;
+    margin-bottom: 1.5rem;
 }
 
-.contact-form { 
-    background: var(--card-bg); 
-    border: 1px solid var(--card-border-color); 
-    border-radius: 15px; 
-    padding: 2.5rem; 
+.faq-item.active .faq-answer { 
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 1rem 0;
+}
+
+
+/* --- Contact Page Specific --- */
+.contact-wrapper { 
+    display: grid; 
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 4rem; 
+    align-items: start; 
+}
+
+.contact-form h2 { 
+    font-size: 2.5rem; 
+    margin-bottom: 2rem; 
 }
 
 .form-group { 
@@ -1322,465 +1227,416 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 .form-group label { 
     display: block; 
     margin-bottom: 0.5rem; 
-    color: var(--text-light); 
-    font-weight: 500; 
+    color: var(--text-gray); 
 }
 
-.form-control { 
+.form-group input, .form-group textarea { 
     width: 100%; 
-    padding: 12px 15px; 
-    background: rgba(10, 4, 26, 0.5); 
+    padding: 15px; 
+    background: var(--secondary-dark); 
     border: 1px solid var(--card-border-color); 
-    border-radius: 8px; 
     color: var(--text-light); 
-    font-size: 1rem; 
-    transition: all var(--transition-fast); 
+    border-radius: 8px; 
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast); 
 }
 
-.form-control:focus { 
+.form-group input:focus, .form-group textarea:focus { 
     outline: none; 
-    border-color: var(--accent-light); 
-    box-shadow: 0 0 0 2px rgba(164, 94, 255, 0.2); 
+    border-color: var(--accent-purple); 
+    box-shadow: 0 0 0 3px rgba(164, 94, 255, 0.7); 
 }
 
-textarea.form-control { 
-    min-height: 150px; 
+.form-group textarea { 
     resize: vertical; 
+    min-height: 150px; 
 }
 
-.submit-btn { 
-    width: 100%; 
-    padding: 14px; 
+.contact-info h3 { 
+    font-size: 1.5rem; 
+    margin-bottom: 1.5rem; 
+}
+
+.info-item { 
+    display: flex; 
+    align-items: flex-start; 
+    margin-bottom: 1.5rem; 
+}
+
+.info-icon { 
+    font-size: 1.5rem; 
+    color: var(--accent-light); 
+    margin-right: 1.5rem; 
+    margin-top: 4px; 
+    text-align: center; 
+    width: 25px; 
+}
+
+.social-icons { 
+    display: flex; 
+    gap: 1.5rem; 
+    margin-top: 2rem; 
+}
+
+.social-icons a { 
+    color: var(--text-gray); 
+    font-size: 1.5rem; 
+    transition: color var(--transition-fast), transform var(--transition-fast); 
+}
+
+.social-icons a:hover { 
+    color: var(--accent-light); 
+    transform: translateY(-3px); 
+}
+
+.step-item { 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 1.5rem; 
+    margin-bottom: 2rem; 
+}
+
+.step-number { 
     background: linear-gradient(45deg, var(--accent-purple), var(--accent-light)); 
     color: #fff; 
-    border: none; 
-    border-radius: 8px; 
-    font-size: 1rem; 
-    font-weight: 600; 
-    text-transform: uppercase; 
-    letter-spacing: 1px; 
-    cursor: pointer; 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
+    font-family: var(--font-heading); 
+    width: 50px; 
+    height: 50px; 
+    min-width: 50px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.5rem; 
+    box-shadow: 0 0 20px rgba(164, 94, 255, 0.5); 
+}
+
+.step-content h4 { 
+    font-size: 1.2rem; 
+    margin-bottom: 0.5rem; 
+}
+
+/* --- Careers Page Specific --- */
+.job-listings { 
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+.job-card { 
+    background: var(--card-bg); 
+    border: 1px solid var(--card-border-color); 
+    border-radius: 15px; 
+    padding: 2rem; 
+    margin-bottom: 1.5rem; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: center; 
+    /* UPDATED: Uses fast transition variable */
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
+    /* ADDED: Performance hint */
     will-change: transform, box-shadow;
 }
 
-.submit-btn:hover { 
-    transform: translateY(-3px); 
-    box-shadow: 0 10px 20px rgba(138, 43, 226, 0.4); 
+.job-card:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.2); 
+}
+
+.job-details { 
+    flex: 1 1 300px; 
+}
+
+.job-card h3 { 
+    font-size: 1.5rem; 
+    margin-bottom: 0.5rem; 
+    color: var(--accent-light); 
+}
+
+.job-meta { 
+    display: flex; 
+    gap: 1.5rem; 
+    color: var(--text-gray); 
+    margin-bottom: 1rem; 
+}
+
+.job-meta span { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+}
+
+.job-card .cta-button { 
+    flex-shrink: 0; 
+}
+
+.no-openings { 
+    text-align: center; 
+    padding: 3rem; 
+    background: var(--card-bg); 
+    border: 1px solid var(--card-border-color); 
+    border-radius: 15px; 
+}
+
+.no-openings h3 { 
+    margin-bottom: 1rem; 
+}
+
+.no-openings p a { 
+    color: var(--accent-light); 
+}
+
+/* --- CTA Sections --- */
+.cta-section { 
+    text-align: center; 
+    padding: 70px 0; 
+}
+
+.cta-section h2 { 
+    font-size: clamp(2rem, 4.5vw, 2.8rem); 
+    margin-bottom: 2rem; 
 }
 
 /* --- Footer --- */
 .main-footer { 
-    background: linear-gradient(180deg, rgba(18, 8, 47, 0.9), rgba(10, 4, 26, 0.95)); 
-    padding: 60px 0 30px; 
-    position: relative; 
+    background-color: transparent; 
+    padding: 70px 5% 25px; 
+    border-top: 1px solid var(--card-border-color); 
 }
 
-.footer-grid { 
+.footer-content { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 3rem; 
-    margin-bottom: 3rem; 
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 2rem; 
+    margin-bottom: 2.5rem; 
+    text-align: left; 
 }
 
-.footer-col h4 { 
-    font-size: 1.2rem; 
-    margin-bottom: 1.5rem; 
-    position: relative; 
+.footer-about p { 
+    color: var(--text-gray); 
+    margin-top: 1rem; 
+    font-size: 0.95rem; 
 }
 
-.footer-col h4::after { 
-    content: ''; 
-    position: absolute; 
-    bottom: -8px; 
-    left: 0; 
-    width: 40px; 
-    height: 2px; 
-    background: var(--accent-light); 
-}
-
-.footer-col ul { 
-    list-style: none; 
-}
-
-.footer-col ul li { 
+.footer-links h4 { 
+    font-size: 1.1rem; 
     margin-bottom: 1rem; 
 }
 
-.footer-col ul li a { 
+.footer-links ul { 
+    list-style: none; 
+    padding: 0; 
+}
+
+.footer-links li { 
+    margin-bottom: 0.7rem; 
+}
+
+.footer-links a { 
     color: var(--text-gray); 
-    transition: color var(--transition-fast); 
+    text-decoration: none; 
+    transition: color var(--transition-fast), padding-left var(--transition-fast); 
+    font-size: 0.95rem; 
 }
 
-.footer-col ul li a:hover { 
-    color: var(--text-light); 
+.footer-links a:hover { 
+    color: var(--accent-light); 
+    padding-left: 8px; 
 }
 
-.social-links { 
-    display: flex; 
-    gap: 1rem; 
-}
-
-.social-links a { 
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    width: 40px; 
-    height: 40px; 
-    background: var(--card-bg); 
-    border: 1px solid var(--card-border-color); 
-    border-radius: 50%; 
-    color: var(--text-light); 
-    transition: all var(--transition-bounce); 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
-    will-change: transform, background, border-color;
-}
-
-.social-links a:hover { 
-    background: var(--accent-purple); 
-    border-color: var(--accent-purple); 
-    transform: translateY(-5px) scale(1.1); 
-}
-
-.footer-bottom { 
+.copyright { 
     text-align: center; 
     padding-top: 2rem; 
     border-top: 1px solid var(--card-border-color); 
     color: var(--text-gray); 
-    font-size: 0.9rem; 
+    font-size: 0.85rem; 
 }
 
-/* --- Scroll to Top Button --- */
-.scroll-to-top { 
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    width: 50px; 
-    height: 50px; 
-    background: var(--accent-purple); 
-    color: #fff; 
-    border: none; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 1.2rem; 
-    cursor: pointer; 
-    opacity: 0; 
-    visibility: hidden; 
-    transition: all var(--transition-bounce); 
-    z-index: 999; 
-    /* ENHANCED: Performance optimization */
-    transform: translateZ(0);
-    will-change: transform, opacity, visibility;
-}
-
-.scroll-to-top.visible { 
-    opacity: 1; 
-    visibility: visible; 
-}
-
-.scroll-to-top:hover { 
-    background: var(--accent-light); 
-    transform: translateY(-5px) scale(1.1); 
-}
-
-/* --- Responsive Design --- */
-@media (max-width: 992px) { 
-    .nav-links { 
-        display: none; 
+/* --- Media Queries --- */
+@media (max-width: 992px) {
+    .service-detail-layout { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        gap: 2rem; 
+    }
+    
+    .service-detail-layout:nth-child(even) .service-image { 
+        order: 1; 
+    }
+    
+    .service-content { 
+        order: 2; 
+    }
+    
+    .service-features { 
+        display: inline-block; 
+        text-align: left; 
+    }
+    
+    .service-image { 
+        height: 350px; 
+    }
+    
+    .contact-wrapper { 
+        grid-template-columns: 1fr; 
     } 
+    
+    .contact-info { 
+        margin-top: 4rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    /* REMOVED: All .custom-cursor, body, and a/button cursor styles */
+
+    .main-header { 
+        padding: 8px 5%; 
+    }
+    
+    .logo img { 
+        height: 50px; 
+    }
+    
+    .nav-links { 
+        position: fixed; 
+        top: 0; 
+        right: -100%; 
+        width: 70%; 
+        height: 100vh; 
+        background-color: var(--secondary-dark); 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        transition: right 0.5s ease-in-out; 
+    }
+    
+    .nav-links.active { 
+        right: 0; 
+    }
+    
+    .nav-links li { 
+        margin: 20px 0; 
+    }
     
     .hamburger { 
         display: block; 
-        background: none; 
-        border: none; 
-        color: var(--text-light); 
-        font-size: 1.5rem; 
-        cursor: pointer; 
+        z-index: 1001; 
+        position: relative; 
+        width: 25px; 
+        height: 21px; 
+    }
+    
+    .hamburger div { 
+        width: 100%; 
+        height: 3px; 
+        background-color: var(--text-light); 
+        position: absolute; 
+        left: 0; 
+        transition: all var(--transition-fast); 
+    }
+    
+    .bar1 { 
+        top: 0; 
     } 
     
+    .bar2 { 
+        top: 9px; 
+    } 
+    
+    .bar3 { 
+        bottom: 0; 
+    }
+    
+    .hamburger.active .bar1 { 
+        transform: rotate(45deg); 
+        top: 9px; 
+    }
+    
+    .hamburger.active .bar2 { 
+        opacity: 0; 
+    }
+    
+    .hamburger.active .bar3 { 
+        transform: rotate(-45deg); 
+        top: 9px; 
+    }
+    
+    .section { 
+        padding: 80px 0; 
+    }
+    
+    .page-hero { 
+        padding: 140px 0 60px; 
+    }
+
     .work-item { 
         grid-template-columns: 1fr; 
-    } 
+        gap: 2rem; 
+    }
     
     .work-item:nth-child(even) .work-image { 
-        order: 0; 
-    } 
+        order: 1; 
+    }
     
-    .service-detail-layout { 
-        grid-template-columns: 1fr; 
-    } 
-    
-    .service-detail-layout:nth-child(even) .service-image { 
-        order: 0; 
-    } 
-    
-    .contact-grid { 
-        grid-template-columns: 1fr; 
-    } 
-    
+    .work-content { 
+        order: 2; 
+        text-align: center; 
+    }
+
     .process-timeline::after { 
-        left: 31px; 
-    } 
+        left: 15px; 
+    }
     
     .process-step { 
         width: 100%; 
-        padding-left: 70px; 
-        padding-right: 25px; 
-    } 
+        padding-left: 40px; 
+        padding-right: 10px; 
+    }
     
-    .process-step.right { 
+    .process-step.left, .process-step.right { 
         left: 0; 
         text-align: left; 
-    } 
+    }
     
     .process-step::after { 
-        left: 20px; 
-    } 
-    
-    .process-step.right::after { 
-        left: 20px; 
-    } 
-}
-
-/* ENHANCED: Mobile-specific optimizations */
-@media (max-width: 768px) {
-    body {
-        /* ENHANCED: Prevent horizontal scroll */
-        overflow-x: hidden;
-        width: 100%;
+        left: 5px; 
     }
-    
-    .container { 
-        width: 95%; 
-    } 
-    
-    .section { 
-        padding: 70px 0; 
-    } 
-    
-    .section-title { 
-        margin-bottom: 3rem; 
-    } 
-    
-    .hero { 
-        padding: 100px 0 40px; 
-    } 
-    
-    .page-hero { 
-        padding: 120px 0 60px; 
-    } 
-    
-    .logo-grid { 
-        gap: 2.5rem; 
-    } 
-    
-    .logo-grid i { 
-        font-size: 2.5rem; 
-    } 
-    
-    .services-grid, .why-choose-us-grid, .blog-grid, .stats-grid, .team-grid, .testimonials-grid, .industries-grid, .pricing-grid { 
-        grid-template-columns: 1fr; 
-    } 
-    
-    .featured-work-grid { 
-        gap: 3rem; 
-    } 
-    
-    .filter-buttons { 
-        gap: 0.5rem; 
-    } 
-    
-    .filter-btn { 
-        padding: 8px 20px; 
-        font-size: 0.9rem; 
-    } 
-    
+
     .portfolio-grid { 
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    } 
-    
-    .footer-grid { 
         grid-template-columns: 1fr; 
-        gap: 2rem; 
-    } 
-    
-    .hero-icons {
-        gap: 2rem;
-        margin: 2rem 0;
     }
     
-    .icon-circle {
-        width: 70px;
-        height: 70px;
+    .pricing-grid { 
+        grid-template-columns: 1fr; 
     }
     
-    .icon-circle i {
-        font-size: 1.8rem;
-    }
-    
-    .icon-text {
-        font-size: 0.85rem;
-        max-width: 100px;
-    }
-    
-    /* ENHANCED: Improved mobile pricing card layout */
-    .pricing-card {
-        padding: 1.2rem;
-        margin-bottom: 1rem;
-    }
-    
-    .popular-badge {
-        font-size: 0.7rem;
-        padding: 0.3rem 1rem;
-        top: -10px;
-    }
-    
-    .scroll-to-top { 
-        bottom: 20px; 
-        right: 20px; 
-        width: 45px; 
-        height: 45px; 
+    .footer-content { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
     }
 }
 
-@media (max-width: 576px) { 
-    .hero h1 { 
-        font-size: clamp(2.5rem, 8vw, 3.5rem); 
-    } 
-    
-    .hero p { 
-        font-size: 1rem; 
-    } 
+@media (max-width: 480px) {
+    .page-hero h1 { 
+        font-size: 2rem; 
+    }
     
     .cta-button { 
         padding: 12px 25px; 
         font-size: 0.9rem; 
-    } 
-    
-    .service-card, .feature-card, .testimonial-card, .contact-card, .contact-form, .stat-card, .industry-card { 
-        padding: 1.5rem; 
-    } 
-    
-    .portfolio-item img { 
-        height: 220px; 
-    } 
-    
-    .work-content h3 { 
-        font-size: 1.5rem; 
-    } 
-    
-    .pricing-card .price { 
-        font-size: 2.5rem; 
     }
     
-    .hero-icons {
-        gap: 1.5rem;
+    .service-content h2 { 
+        font-size: 1.6rem; 
     }
     
-    .icon-circle {
-        width: 60px;
-        height: 60px;
+    .industries-grid { 
+        grid-template-columns: 1fr; 
     }
     
-    .icon-circle i {
-        font-size: 1.5rem;
-    }
-    
-    .icon-text {
-        font-size: 0.8rem;
-        max-width: 90px;
+    .stats-grid { 
+        grid-template-columns: 1fr; 
     }
 }
 
-/* ENHANCED: Animation performance improvements */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
 
-/* ENHANCED: Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    .service-card:hover,
-    .feature-card:hover,
-    .portfolio-item:hover,
-    .testimonial-card:hover,
-    .stat-card:hover,
-    .industry-card:hover,
-    .pricing-card:hover,
-    .contact-card:hover,
-    .social-links a:hover,
-    .logo-grid i:hover,
-    .work-image:hover img,
-    .blog-post-card:hover .blog-post-img img,
-    .service-image:hover img,
-    .portfolio-item:hover img,
-    .team-member:hover .team-member-img img {
-        transform: none;
-    }
-    
-    .service-card:hover,
-    .feature-card:hover,
-    .portfolio-item:hover,
-    .testimonial-card:hover,
-    .stat-card:hover,
-    .industry-card:hover,
-    .pricing-card:hover,
-    .contact-card:hover {
-        transform: none;
-        box-shadow: none;
-    }
-    
-    .filter-btn:hover,
-    .cta-button:hover,
-    .submit-btn:hover,
-    .scroll-to-top:hover {
-        transform: none;
-    }
-}
 
-/* ENHANCED: High DPI display optimizations */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .logo img {
-        image-rendering: -webkit-optimize-contrast;
-    }
-}
-
-/* ENHANCED: Print styles */
-@media print {
-    .main-header,
-    .scroll-to-top,
-    .floating-dots-container,
-    #particles-js {
-        display: none !important;
-    }
-    
-    body {
-        background: white !important;
-        color: black !important;
-    }
-    
-    .section-dark {
-        background: white !important;
-    }
-    
-    .service-card,
-    .feature-card,
-    .testimonial-card,
-    .contact-card,
-    .stat-card,
-    .industry-card,
-    .pricing-card {
-        background: white !important;
-        border: 1px solid #ddd !important;
-        box-shadow: none !important;
-    }
-}
