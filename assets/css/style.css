@@ -1052,6 +1052,13 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     background-clip: text; 
 }
 
+/* --- START: Icon Alignment Fix --- */
+/* This rule targets the specific "Premium Quality" icon (fa-medal) and adjusts its vertical alignment. */
+.icon-circle i.fa-medal {
+    transform: translateY(2px); /* Adjust as needed, positive values move it down */
+}
+/* --- END: Icon Alignment Fix --- */
+
 .icon-text { 
     font-size: 0.95rem; 
     color: var(--text-light); 
