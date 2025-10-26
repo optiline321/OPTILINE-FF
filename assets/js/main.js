@@ -158,16 +158,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 faqItems.forEach(i => {
                     if (i !== item && i.classList.contains('active')) {
                         i.classList.remove('active');
-                        gsap.to(i.querySelector('.faq-answer'), { maxHeight: 0, opacity: 0, duration: 0.5, ease: 'power2.inOut' });
+                        gsap.to(i.querySelector('.faq-answer'), { maxHeight: 0, opacity: 0, duration: 0.3, ease: 'power2.inOut' });
                     }
                 });
 
                 // Toggle the clicked item
                 item.classList.toggle('active');
                 if (item.classList.contains('active')) {
-                    gsap.to(answer, { maxHeight: answer.scrollHeight + 'px', opacity: 1, duration: 0.7, ease: 'expo.out' });
+                    gsap.to(answer, { maxHeight: answer.scrollHeight + 'px', opacity: 1, duration: 0.4, ease: 'expo.out' });
                 } else {
-                    gsap.to(answer, { maxHeight: 0, opacity: 0, duration: 0.5, ease: 'power2.inOut' });
+                    gsap.to(answer, { maxHeight: 0, opacity: 0, duration: 0.3, ease: 'power2.inOut' });
                 }
             });
         });
