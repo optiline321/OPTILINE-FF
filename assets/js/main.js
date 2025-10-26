@@ -1,81 +1,50 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- 1. GLOBAL INITIALIZATIONS & HELPERS ---
-    
-    // Initialize Particles.js
-    if (document.getElementById('particles-js')) {
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 60, "density": { "enable": true, "value_area": 800 }},
-                "color": { "value": "#8A2BE2" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 0.5, "opacity_min": 0.1, "sync": false }},
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": false },
-                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
-            },
-            "interactivity": { "detect_on": "canvas" },
-            "retina_detect": true
-        });
-    }
-
-    // Initialize Floating Dots Background (used on some pages)
-    if (document.getElementById('floatingDots')) {
-        const container = document.getElementById('floatingDots');
-        const dotCount = 25;
-        for (let i = 0; i < dotCount; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('floating-dot');
-            const size = Math.random() * 3 + 2;
-            dot.style.width = `${size}px`;
-            dot.style.height = `${size}px`;
-            dot.style.left = `${Math.random() * 100}%`;
-            dot.style.top = `${Math.random() * 100}%`;
-            if (i % 2 === 0) {
-                 dot.style.background = 'rgba(164, 94, 255, 0.4)';
-                 dot.style.animationDuration = '30s';
-            } else {
-                 dot.style.background = 'rgba(255, 255, 255, 0.6)';
-            }
-            container.appendChild(dot);
-        }
-    }
-
-    // GSAP Plugin Registration
     gsap.registerPlugin(ScrollTrigger);
 
     // --- 2. HEADER & NAVIGATION ---
-    
     const header = document.getElementById('header');
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+    let lastScrollTop = 0;
 
+    // Smart Header: Hide on scroll down, show on scroll up
     if (header) {
         window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 50);
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                // Scroll Down
+                header.classList.add('header-hidden');
+            } else {
+                // Scroll Up
+                header.classList.remove('header-hidden');
+            }
+            header.classList.toggle('scrolled', scrollTop > 50);
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
     }
-
+    
+    // Mobile Navigation: Toggle menu and prevent body scroll
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
+            document.body.classList.toggle('no-scroll'); // Prevent background scrolling
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
+                if (navLinks.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                }
             });
         });
     }
 
-    // --- 3. CUSTOM CURSOR ---
-    // REMOVED: Entire custom cursor JavaScript block
-
-    // --- 4. GLOBAL SCROLL-TRIGGERED ANIMATIONS ---
-    // UPDATED: Tuned for a faster, smoother, more dynamic feel.
-
+    // --- 3. GLOBAL SCROLL-TRIGGERED ANIMATIONS ---
     gsap.utils.toArray('.anim-group').forEach(group => {
         const anims = group.querySelectorAll('h1, h2, h3, h4, p, .cta-button, .logo-grid i, .service-card, .stat-card, .testimonial-card, .team-member, .faq-item, .process-step, .feature-card, .work-item, .blog-post-card, .view-all-work-btn, .service-image, .service-content > *, .service-features li, .industry-card, .filter-buttons, .portfolio-item, .pricing-card, .icon-item, .contact-wrapper > *, .step-item, .job-card, .no-openings');
         
@@ -83,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.from(anims, {
                 y: 50,
                 opacity: 0,
-                duration: 0.8,     // UPDATED: Faster duration (was 1)
-                ease: "expo.out",  // UPDATED: Smoother, more dynamic ease (was power3.out)
-                stagger: 0.08,     // UPDATED: Tighter stagger (was 0.1)
+                duration: 0.8,
+                ease: "expo.out",
+                stagger: 0.08,
                 scrollTrigger: {
                     trigger: group,
                     start: "top 85%",
@@ -95,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // --- 5. PAGE-SPECIFIC LOGIC ---
+    // --- 4. PAGE-SPECIFIC LOGIC ---
 
     // Home Page: Stats Counter
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -115,28 +84,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Portfolio Page: Filter Logic
+    // Portfolio Page: Enhanced Filter Logic
     const filterButtons = document.querySelectorAll('.filter-btn');
     if (filterButtons.length > 0) {
         const portfolioItems = gsap.utils.toArray('.portfolio-item');
         
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Update active button state
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-                const filterValue = button.getAttribute('data-filter');
 
+                // Animate items
                 portfolioItems.forEach(item => {
                     const itemCategory = item.dataset.category;
                     const shouldShow = (filterValue === 'all' || itemCategory === filterValue);
+                    
+                    // Kill any running animations on the item to prevent conflicts
+                    gsap.killTweensOf(item);
 
-                     gsap.to(item, {
-                         duration: 0.5,
-                         opacity: shouldShow ? 1 : 0,
-                         scale: shouldShow ? 1 : 0.9,
-                         onStart: () => { if(shouldShow) item.style.display = 'block'; },
-                         onComplete: () => { if(!shouldShow) item.style.display = 'none'; }
-                     });
+                    gsap.to(item, {
+                        duration: 0.5,
+                        opacity: shouldShow ? 1 : 0,
+                        scale: shouldShow ? 1 : 0.95,
+                        display: shouldShow ? 'block' : 'none',
+                        ease: "expo.out",
+                        delay: 0.1 // Small delay for staggering effect
+                    });
                 });
             });
         });
@@ -155,13 +131,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const iconItems = document.querySelectorAll('.icon-item');
         iconItems.forEach(item => {
             const delay = parseFloat(item.getAttribute('data-delay')) || 0;
-            gsap.to(item, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                delay: 0.5 + delay,
-                ease: "back.out(1.7)"
-            });
+            gsap.fromTo(item, 
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    delay: 0.5 + delay,
+                    ease: "back.out(1.7)"
+                }
+            );
         });
     }
 
@@ -170,14 +149,26 @@ document.addEventListener('DOMContentLoaded', function() {
     if (faqItems.length > 0) {
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
             question.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
+
+                // Close all other items
                 faqItems.forEach(i => {
-                    if (i.classList.contains('active') && i !== item) {
+                    if (i !== item && i.classList.contains('active')) {
                         i.classList.remove('active');
+                        gsap.to(i.querySelector('.faq-answer'), { maxHeight: 0, opacity: 0, duration: 0.5, ease: 'power2.inOut' });
                     }
                 });
+
+                // Toggle the clicked item
                 item.classList.toggle('active');
+                if (item.classList.contains('active')) {
+                    gsap.to(answer, { maxHeight: answer.scrollHeight + 'px', opacity: 1, duration: 0.7, ease: 'expo.out' });
+                } else {
+                    gsap.to(answer, { maxHeight: 0, opacity: 0, duration: 0.5, ease: 'power2.inOut' });
+                }
             });
         });
     }
