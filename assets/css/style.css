@@ -1191,9 +1191,9 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     opacity: 0;
     overflow: hidden;
     padding: 0 1rem;
-    transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.5s ease-in-out, 
-                padding 0.5s ease-in-out;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease-in-out, 
+                padding 0.3s ease-in-out;
 }
 
 .faq-answer p { 
@@ -1639,3 +1639,4 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
         grid-template-columns: 1fr; 
     }
 }
+
