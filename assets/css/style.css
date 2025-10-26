@@ -1162,8 +1162,7 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    /* UPDATED: Uses fast transition variable */
-    transition: all var(--transition-fast); 
+    transition: background-color var(--transition-fast); 
 }
 
 .faq-question:hover { 
@@ -1183,20 +1182,26 @@ a, button, .filter-btn, .portfolio-item, .pricing-card, .faq-question, .hamburge
 }
 
 .faq-answer { 
-    max-height: 0; 
-    overflow: hidden; 
-    /* UPDATED: Uses smooth transition variable */
-    transition: max-height var(--transition-smooth); 
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+    transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.5s ease-in-out, 
+                padding 0.5s ease-in-out;
 }
 
 .faq-answer p { 
     color: var(--text-gray); 
     line-height: 1.6; 
-    padding: 0 1rem 1.5rem; 
+    padding: 0;
+    margin-bottom: 1.5rem;
 }
 
 .faq-item.active .faq-answer { 
-    max-height: 500px; 
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 1rem 0;
 }
 
 /* --- Contact Page Specific --- */
